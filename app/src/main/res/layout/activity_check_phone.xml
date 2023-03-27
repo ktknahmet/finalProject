@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical|horizontal"
+    tools:ignore="Overdraw">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivSMS"
+            android:layout_width="240dp"
+            android:layout_height="188dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/iv_dogrulama_kodu" />
+
+        <TextView
+            android:id="@+id/tvSMSCodeTitle"
+            style="@style/h18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivSMS"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/dogrulama_kodunuz" />
+
+        <com.ktknahmet.final_project.utils.pinview.CirclePinField
+            android:id="@+id/pinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSMSCodeTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:inputType="numberPassword"
+            android:textSelectHandle="@drawable/pin_view_text_handle"
+            android:textSize="14sp"
+            app:fieldBgColor="@color/sWhite"
+            app:fieldColor="?thColorPrimary"
+            app:fillerColor="?thColorPrimary"
+            app:fillerRadius="2dp"
+            app:highlightColor="?thColorPrimary"
+            app:highlightEnabled="true"
+            app:noOfFields="4"
+            app:pinCircleRadius="16dp" />
+
+        <TextView
+            android:id="@+id/tvSMSDuration"
+            style="@style/h18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pinView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            tools:text="01:00" />
+
+        <TextView
+            android:id="@+id/tvSmsTitle"
+            style="@style/r12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSMSDuration"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="@string/sms_text1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSMSValidate"
+            style="@style/btnMedium"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSmsTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="@string/dogrula" />
+
+        <TextView
+            android:id="@+id/tvResendVerificationCodeTitle"
+            style="@style/r12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSMSValidate"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/sms_text3" />
+
+        <TextView
+            android:id="@+id/tvResendVerificationCode"
+            style="@style/r12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvResendVerificationCodeTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:text="@string/sms_text2"
+            android:textColor="?thColorPrimary" />
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/myCard3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/mr_card_list">
+
+    <RelativeLayout
+        android:id="@+id/rlItemAuthsAppsDetails"
+        style="@style/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.ktknahmet.final_project.utils.CircularImageView
+            android:id="@+id/itemPhoto"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            app:civ_border_width="1dp"
+            app:civ_shadow="false"
+            app:civ_shadow_radius="0dp"
+            app:srcCompat="@drawable/iv_profile" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/pd_card"
+            android:layout_marginEnd="@dimen/pd_card"
+            android:layout_toEndOf="@+id/itemPhoto"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemName"
+                style="@style/m14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Emre ASLAN" />
+
+            <TextView
+                android:id="@+id/itemPhone"
+                style="@style/r10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Senior Android Developer" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
+

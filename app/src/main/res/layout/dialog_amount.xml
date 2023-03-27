@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/myCard2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?thDialogBack">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/dialogTitleStyle"
+            android:text="@string/butce"
+            app:drawableStartCompat="@drawable/ic_amount" />
+
+        <TextView
+            style="@style/r12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/mrDialogTop"
+            android:text="@string/odeme_butcesi_gir" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/textInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textInputHeight"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/mr_card_list"
+            android:layout_marginEnd="28dp"
+            android:hint="@string/butce">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtAmount"
+                style="@style/r14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789,."
+                android:inputType="number"
+                android:maxLength="12" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSelectTarih"
+            style="@style/textInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/textInputHeight"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/mr_card_list"
+            android:layout_marginEnd="28dp"
+            android:visibility="gone"
+            android:hint="@string/bildirimTarihi">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/selectTarih"
+                style="@style/r14"
+                android:focusable="false"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="@dimen/mrDialogBottom"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                style="@style/btnMediumOutlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:text="@string/iptal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOK"
+                style="@style/btnMedium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ekle"
+                app:backgroundTint="?thSuccess" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

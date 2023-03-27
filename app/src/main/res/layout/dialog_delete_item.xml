@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/myCard2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="?thBack">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/iv_trash_bin" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/h18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/mr_dialog"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="@dimen/mr_dialog"
+            android:text="@string/question_delete" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOK"
+            style="@style/btnLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mrDialogTop"
+            android:layout_marginTop="@dimen/mrDialogBottom"
+            android:layout_marginEnd="@dimen/mrDialogTop"
+            android:text="@string/sil_caps"
+            app:backgroundTint="?thError" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="@style/btnLargeOutlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mrDialogTop"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/mrDialogTop"
+            android:layout_marginBottom="@dimen/mr_dialog"
+            android:text="@string/iptal_et_caps" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:keep="@color/mtrl_textinput_default_box_stroke_color" tools:override="true">
+        @color/lightTextInputLayout
+    </color>
+
+    <!-- New UI Colors -->
+    <color name="lightPrimary">#20A1DA</color>
+    <color name="lightAccent">#20A1DA</color>
+    <color name="lightTertiary">#D97D21</color>
+    <color name="lightWarning">#D99B21</color>
+    <color name="lightError">#D95757</color>
+    <color name="lightSuccess">#17996E</color>
+    <color name="lightHeaderText">#335766</color>
+    <color name="lightText">#406C80</color>
+    <color name="lightSubText">#667880</color>
+    <color name="lightBack">#F2F6F7</color>
+    <color name="lightCardBack">#FFFFFF</color>
+    <color name="lightCardBorder">#33406B80</color>
+    <color name="lightStroke">#1A406B80</color>
+    <color name="lightShadow">#80406B80</color>
+    <color name="lightTextInputLayout">#4D406B80</color>
+    <color name="lightTableHeader">#1A406B80</color>
+
+    <color name="darkPrimary">#20A1DA</color>
+    <color name="darkAccent">#82BFD9</color>
+    <color name="darkTertiary">#D9A36C</color>
+    <color name="darkWarning">#D9A641</color>
+    <color name="darkError">#D96C6C</color>
+    <color name="darkSuccess">#47B38F</color>
+    <color name="darkHeaderText">#EBF9FF</color>
+    <color name="darkText">#CFDFE6</color>
+    <color name="darkSubText">#A1ADB3</color>
+    <color name="darkBack">#1B2326</color>
+    <color name="darkCardBack">#242E33</color>
+
+    <color name="skyblue">#C7E9F6</color>
+    <color name="darkCardBorder">#33CFDFE6</color>
+    <color name="darkStroke">#1ACFDFE6</color>
+    <color name="darkShadow">#33000000</color>
+    <!-- ___________  -->
+    <color name="orange">#F6DBAA</color>
+    <color name="colorChartText">#D99BA2AF</color>
+    <color name="sWhite">#FFFFFF</color>
+
+    <color name="ucrop_color_toolbar" tools:keep="@color/ucrop_color_toolbar">@color/lightBack</color>
+    <color name="ucrop_color_statusbar" tools:keep="@color/ucrop_color_statusbar">@color/lightSubText</color>
+    <color name="ucrop_color_widget_active" tools:keep="@color/ucrop_color_widget_active">@color/darkError</color>
+
+    <color name="pinFieldLibraryAccent">#20A1DA</color>
+    <color name="inactivePinFieldColor">#808080</color>
+    <color name="pinFieldLibraryTransparent">#00000000</color>
+
+    <color name="baselineDashColor">#BDBDBD</color>
+    <color name="default_shimmer_color">#e3e1e3</color>
+</resources>

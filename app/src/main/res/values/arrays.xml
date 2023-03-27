@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arcColors">
+        <item>#20A1DA</item>
+        <item>#D9A36C</item>
+        <item>#17996E</item>
+    </string-array>
+
+    <string-array name="arcColorsBack">
+        <item>#1A406B80</item>
+        <item>#1A406B80</item>
+        <item>#1A406B80</item>
+        <item>#1A406B80</item>
+    </string-array>
+    <string-array name="default_preview">
+        <item>#CE5E5E</item>
+        <item>#E6A744</item>
+        <item>#5387AF</item>
+        <item>#7F8A40</item>
+    </string-array>
+</resources>

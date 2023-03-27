@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="thBack" format="reference" />
+    <attr name="thCard" format="reference" />
+    <attr name="thTextHeader" format="reference" />
+    <attr name="thText" format="reference" />
+    <attr name="thTextSub" format="reference" />
+    <attr name="thTextHint" format="reference" />
+    <attr name="thDrawer" format="reference" />
+    <attr name="thDivider" format="reference" />
+    <attr name="thNavBar" format="reference" />
+    <attr name="thColorPrimary" format="reference" />
+    <attr name="thIcon" format="reference" />
+    <attr name="thDialogBack" format="reference" />
+    <attr name="thDialogTitle" format="reference" />
+    <attr name="thWarning" format="reference" />
+    <attr name="thError" format="reference" />
+    <attr name="thSuccess" format="reference" />
+    <attr name="thBorder" format="reference" />
+    <attr name="thStroke" format="reference" />
+    <attr name="thShadow" format="reference" />
+    <attr name="thTertiary" format="reference" />
+    <attr name="thColorAccent" format="reference" />
+
+
+    <declare-styleable name="PdfRendererView">
+        <attr name="pdfView_quality" format="enum">
+            <enum name="fast" value="1" />
+            <enum name="normal" value="2" />
+            <enum name="enhanced" value="3" />
+        </attr>
+        <attr name="pdfView_engine" format="enum">
+            <enum name="internal" value="100" />
+            <enum name="google" value="200" />
+        </attr>
+        <attr name="pdfView_showDivider" format="boolean" />
+        <attr name="pdfView_divider" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ArcProgressStackView">
+        <attr name="apsv_animated" format="boolean" />
+        <attr name="apsv_shadowed" format="boolean" />
+        <attr name="apsv_rounded" format="boolean" />
+        <attr name="apsv_dragged" format="boolean" />
+        <attr name="apsv_leveled" format="boolean" />
+
+        <attr name="apsv_typeface" format="string" />
+        <attr name="apsv_text_color" format="color" />
+
+        <attr name="apsv_shadow_distance" format="dimension" />
+        <attr name="apsv_shadow_angle" format="integer" />
+        <attr name="apsv_shadow_radius" format="dimension" />
+        <attr name="apsv_shadow_color" format="color" />
+
+        <attr name="apsv_animation_duration" format="integer" />
+        <attr name="apsv_interpolator" format="reference" />
+
+        <attr name="apsv_draw_width" format="fraction|dimension" />
+        <attr name="apsv_model_offset" format="dimension" />
+        <attr name="apsv_model_bg_enabled" format="boolean" />
+        <attr name="apsv_show_progress" format="boolean" />
+
+        <attr name="apsv_start_angle" format="integer" />
+        <attr name="apsv_sweep_angle" format="integer" />
+        <attr name="apsv_indicator_orientation" format="enum">
+            <enum name="vertical" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+
+        <attr name="apsv_preview_colors" format="reference" />
+        <attr name="apsv_preview_bg" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SheetSelection">
+        <attr name="sheetSelectionTheme" format="reference" />
+        <attr name="sheetSelection_titleStyle" format="reference" />
+        <attr name="sheetSelection_itemStyle" format="reference" />
+        <attr name="sheetSelection_indicatorStyle" format="reference" />
+        <attr name="sheetSelection_indicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="reverseMask" format="boolean" />
+        <attr name="roundedCorners">
+            <flag name="topLeft" value="8" />
+            <flag name="topRight" value="4" />
+            <flag name="bottomLeft" value="2" />
+            <flag name="bottomRight" value="1" />
+            <flag name="top" value="12" />
+            <flag name="bottom" value="3" />
+            <flag name="all" value="15" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MyRatingView">
+        <attr name="numStars" format="integer" />
+        <attr name="rating" format="float" />
+        <attr name="step" format="float" />
+        <attr name="maxRating" format="float" />
+        <attr name="spacing" format="dimension" />
+        <attr name="verticalSpacing" format="dimension" />
+        <attr name="fullDrawable" format="reference" />
+        <attr name="emptyDrawable" format="reference" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularImageView">
+        <!-- BORDER -->
+        <attr name="civ_border" format="boolean" />
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_color_start" format="color" />
+        <attr name="civ_border_color_end" format="color" />
+        <attr name="civ_border_color_direction">
+            <flag name="left_to_right" value="1" />
+            <flag name="right_to_left" value="2" />
+            <flag name="top_to_bottom" value="3" />
+            <flag name="bottom_to_top" value="4" />
+        </attr>
+        <!-- CIRCLE COLOR -->
+        <attr name="civ_circle_color" format="color" />
+        <attr name="civ_circle_color_start" format="color" />
+        <attr name="civ_circle_color_end" format="color" />
+        <attr name="civ_circle_color_direction">
+            <flag name="left_to_right" value="1" />
+            <flag name="right_to_left" value="2" />
+            <flag name="top_to_bottom" value="3" />
+            <flag name="bottom_to_top" value="4" />
+        </attr>
+        <!-- SHADOW -->
+        <attr name="civ_shadow" format="boolean" />
+        <attr name="civ_shadow_color" format="color" />
+        <attr name="civ_shadow_radius" format="dimension" />
+        <attr name="civ_shadow_gravity">
+            <flag name="center" value="1" />
+            <flag name="top" value="2" />
+            <flag name="bottom" value="3" />
+            <flag name="start" value="4" />
+            <flag name="end" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PinField">
+        <attr name="noOfFields" format="integer" />
+        <attr name="distanceInBetween" format="dimension" />
+        <attr name="lineThickness" format="dimension" />
+        <attr name="fieldColor" format="color" />
+        <attr name="highlightColor" format="color" />
+        <attr name="highlightEnabled" format="boolean" />
+        <attr name="isCustomBackground" format="boolean" />
+        <attr name="isCursorEnabled" format="boolean" />
+        <!--Single Field Mode is deprecated use highlight type to define how to highlight the fields-->
+        <attr name="highlightSingleFieldMode" format="boolean" />
+        <attr name="highlightType" format="enum">
+            <enum name="allFields" value="0" />
+            <enum name="currentField" value="1" />
+            <enum name="completedFields" value="2" />
+            <enum name="noFields" value="3" />
+        </attr>
+        <attr name="fieldBgColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CirclePinField">
+        <attr name="pinCircleRadius" format="dimension" />
+        <attr name="fillerColor" format="color" />
+        <attr name="fillerRadius" format="dimension" />
+    </declare-styleable>
+
+    <color name="table_view_default_selected_background_color">#fada65</color>
+    <color name="table_view_default_separator_color">#E7E7E7</color>
+    <color name="table_view_default_shadow_background_color">#f2f2f2</color>
+    <color name="table_view_default_unselected_background_color">#ffffff</color>
+    <integer name="default_item_cache_size">10</integer>
+    <declare-styleable name="TableView">
+        <attr name="row_header_width" format="dimension" />
+        <attr name="column_header_height" format="dimension" />
+        <attr name="selected_color" format="color" />
+        <attr name="unselected_color" format="color" />
+        <attr name="shadow_color" format="color" />
+        <attr name="separator_color" format="color" />
+        <attr name="show_vertical_separator" format="boolean" />
+        <attr name="show_horizontal_separator" format="boolean" />
+        <attr name="allow_click_inside_cell" format="boolean" />
+        <attr name="allow_click_inside_row_header" format="boolean" />
+        <attr name="allow_click_inside_column_header" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SignatureView">
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="baselineColor" format="color" />
+        <attr name="baselineStrokeWidth" format="dimension" />
+        <attr name="baselineDashWidth" format="dimension" />
+        <attr name="baselineDashGap" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ShimmerRecyclerView">
+        <attr name="shimmer_demo_layout" format="reference" />
+        <attr name="shimmer_demo_child_count" format="integer|reference" />
+        <attr name="shimmer_demo_layout_manager_type" format="enum">
+            <enum name="linear_vertical" value="0" />
+            <enum name="linear_horizontal" value="1" />
+            <enum name="grid" value="2" />
+        </attr>
+        <attr name="shimmer_demo_grid_child_count" format="integer|reference" />
+        <attr name="shimmer_demo_shimmer_color" format="color|reference" />
+        <attr name="shimmer_demo_angle" format="integer|reference" />
+        <attr name="shimmer_demo_view_holder_item_background" format="color|reference" />
+        <attr name="shimmer_demo_duration" format="integer|reference" />
+        <attr name="shimmer_demo_mask_width" format="float|reference" />
+        <attr name="shimmer_demo_reverse_animation" format="boolean|reference" />
+    </declare-styleable>
+
+</resources>

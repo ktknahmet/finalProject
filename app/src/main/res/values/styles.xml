@@ -1,0 +1,776 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Light -->
+    <style name="MaterialTheme.NoActionBar.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionButtonStyle">@style/AppTheme.Widget.ActionButton</item>
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+        <item name="android:navigationBarColor">?thNavBar</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <item name="thDivider">@color/lightCardBorder</item>
+        <item name="thColorPrimary">@color/lightPrimary</item>
+        <item name="thColorAccent">@color/lightAccent</item>
+        <item name="thBack">@color/lightBack</item>
+        <item name="thText">@color/lightText</item>
+        <item name="thTextHeader">@color/lightHeaderText</item>
+        <item name="thTextSub">@color/lightSubText</item>
+        <item name="thNavBar">@color/lightCardBack</item>
+        <item name="thCard">@color/lightCardBack</item>
+        <item name="thDrawer">@color/lightBack</item>
+        <item name="thIcon">@color/lightText</item>
+        <item name="thTextHint">@color/lightSubText</item>
+        <item name="thDialogBack">@color/lightBack</item>
+        <item name="thDialogTitle">@color/lightCardBack</item>
+        <item name="thWarning">@color/lightWarning</item>
+        <item name="thError">@color/lightError</item>
+        <item name="thSuccess">@color/lightSuccess</item>
+        <item name="thBorder">@color/lightCardBorder</item>
+        <item name="thStroke">@color/lightStroke</item>
+        <item name="thShadow">@color/lightShadow</item>
+        <item name="thTertiary">@color/lightTertiary</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+
+    <!-- Dark -->
+    <style name="MaterialTheme.NoActionBar.Dark" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionButtonStyle">@style/AppTheme.Widget.ActionButton</item>
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+        <item name="android:navigationBarColor">?thNavBar</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+        <item name="thDivider">@color/darkCardBorder</item>
+        <item name="thColorPrimary">@color/darkPrimary</item>
+        <item name="thColorAccent">@color/darkAccent</item>
+        <item name="thBack">@color/darkBack</item>
+        <item name="thText">@color/darkText</item>
+        <item name="thTextHeader">@color/darkHeaderText</item>
+        <item name="thTextSub">@color/darkSubText</item>
+        <item name="thNavBar">@color/darkCardBack</item>
+        <item name="thCard">@color/darkCardBack</item>
+        <item name="thDrawer">@color/darkBack</item>
+        <item name="thIcon">@color/darkText</item>
+        <item name="thTextHint">@color/darkSubText</item>
+        <item name="thDialogBack">@color/darkBack</item>
+        <item name="thDialogTitle">@color/darkCardBack</item>
+        <item name="thWarning">@color/darkWarning</item>
+        <item name="thError">@color/darkError</item>
+        <item name="thSuccess">@color/darkSuccess</item>
+        <item name="thBorder">@color/darkCardBorder</item>
+        <item name="thStroke">@color/darkStroke</item>
+        <item name="thShadow">@color/darkShadow</item>
+        <item name="thTertiary">@color/darkTertiary</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialog</item>
+        <item name="behavior_peekHeight">512dp</item>
+    </style>
+
+    <style name="FullBottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">1000dp</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BaseFullBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/FullBottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+    </style>
+
+    <style name="FullBottomSheetDialogTheme" parent="BaseFullBottomSheetDialog">
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thDivider</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.Widget.ActionButton" parent="@style/Widget.AppCompat.ActionButton">
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <!-- Buttons -->
+
+    <style name="btnLarge" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?thColorPrimary</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/sWhite</item>
+        <item name="android:textSize">14sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">@color/sWhite</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingTop">14dp</item>
+    </style>
+
+    <style name="btnMedium" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?thColorPrimary</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/sWhite</item>
+        <item name="android:textSize">12sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">@color/sWhite</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+
+    <style name="btnSmall" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?thColorPrimary</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/sWhite</item>
+        <item name="android:textSize">10sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">@color/sWhite</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+    </style>
+
+    <style name="btnLargeOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">?thBack</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?thTextSub</item>
+        <item name="android:textSize">14sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">?thTextSub</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="strokeColor">?thBorder</item>
+    </style>
+
+    <style name="btnMediumOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">?thBack</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?thTextSub</item>
+        <item name="android:textSize">12sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">?thTextSub</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="strokeColor">?thBorder</item>
+    </style>
+
+    <style name="btnSmallOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:backgroundTint">?thBack</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?thTextSub</item>
+        <item name="android:textSize">10sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">?thTextSub</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="strokeColor">?thBorder</item>
+    </style>
+
+
+
+    <style name="dialogPrimaryButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textColor">@color/sWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="backgroundTint">?thSuccess</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">@color/sWhite</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+
+    <style name="dialogAccentButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="strokeColor">?thBorder</item>
+        <item name="android:backgroundTint">?thBack</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">?thText</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+
+    <style name="dialogDeleteButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textColor">@color/sWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="rippleColor">?thCard</item>
+        <item name="backgroundTint">?thError</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineAmbientShadowColor" tools:targetApi="p">?thDivider</item>
+        <item name="android:ambientShadowAlpha">40</item>
+        <item name="android:spotShadowAlpha">40</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="iconTint">@color/sWhite</item>
+        <item name="iconSize">20dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+    </style>
+
+    <!-- SearchView -->
+    <style name="mySearch" parent="Widget.AppCompat.Light.SearchView" tools:keep="@style/mySearch">
+        <item name="android:closeIcon">@drawable/ic_cancel_small</item>
+        <item name="android:searchIcon">@drawable/ic_search</item>
+        <item name="android:textAlignment">textStart</item>
+
+    </style>
+
+
+
+    <!-- Card Views -->
+    <style name="myCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">?thCard</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thShadow</item>
+        <item name="android:layout_marginStart">@dimen/mr</item>
+        <item name="android:layout_marginEnd">@dimen/mr</item>
+        <item name="android:layout_marginBottom">@dimen/mrTopBottom</item>
+        <item name="android:layout_marginTop">@dimen/mrTopBottom</item>
+    </style>
+
+    <style name="myCardBarcode" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">?thCard</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thShadow</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginBottom">@dimen/mrTopBottom</item>
+        <item name="android:layout_marginTop">@dimen/mrTopBottom</item>
+    </style>
+
+    <style name="myCard2" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">?thCard</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thShadow</item>
+    </style>
+
+    <style name="myCard3" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">?thCard</item>
+        <item name="cardCornerRadius">6dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thShadow</item>
+        <item name="android:layout_marginStart">@dimen/mr8</item>
+        <item name="android:layout_marginEnd">@dimen/mr8</item>
+    </style>
+
+    <!--Layouts -->
+    <style name="relativeLayout">
+        <item name="android:layout_margin">@dimen/pd_card</item>
+    </style>
+
+    <style name="linearLayoutVertical">
+        <item name="android:layout_margin">@dimen/pd_card</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="shimmerRecyclerView">
+        <item name="shimmer_demo_shimmer_color">?thBorder</item>
+        <item name="shimmer_demo_angle">20</item>
+        <item name="android:layout_marginStart">@dimen/mr8</item>
+        <item name="android:layout_marginEnd">@dimen/mr8</item>
+    </style>
+
+    <!-- Text Styles -->
+
+    <!-- Headers -->
+    <style name="h18" parent="TextAppearance.AppCompat" tools:keep="@style/h18">
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="h16" parent="TextAppearance.AppCompat" tools:keep="@style/h16">
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="h14" parent="TextAppearance.AppCompat" tools:keep="@style/h14">
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="h12" parent="TextAppearance.AppCompat" tools:keep="@style/h14">
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="h10" parent="TextAppearance.AppCompat" tools:keep="@style/h14">
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <!-- Medium -->
+    <style name="m18" parent="TextAppearance.AppCompat" tools:keep="@style/m18">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="m16" parent="TextAppearance.AppCompat" tools:keep="@style/m16">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="m14" parent="TextAppearance.AppCompat" tools:keep="@style/m14">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="m12" parent="TextAppearance.AppCompat" tools:keep="@style/m12">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="m10" parent="TextAppearance.AppCompat" tools:keep="@style/m10">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="u14" parent="TextAppearance.AppCompat" tools:keep="@style/u14">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+    <!-- Regular -->
+    <style name="r14" parent="TextAppearance.AppCompat" tools:keep="@style/r14">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="r12" parent="TextAppearance.AppCompat" tools:keep="@style/r12">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="r24" parent="TextAppearance.AppCompat" tools:keep="@style/r12">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="r10" parent="TextAppearance.AppCompat" tools:keep="@style/r10">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="MaterialTheme.NoActionBar.Light.NoActionBar" tools:keep="@style/MaterialTheme_NoActionBar_Light_NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MaterialTheme.NoActionBar.Light.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" tools:keep="@style/MaterialTheme_NoActionBar_Light_AppBarOverlay" />
+
+    <style name="MaterialTheme.NoActionBar.Light.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" tools:keep="@style/MaterialTheme_NoActionBar_Light_PopupOverlay" />
+
+    <style name="textInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">?thTextSub</item>
+        <item name="android:textColor">?thText</item>
+        <item name="hintTextColor">?thTextSub</item>
+        <item name="boxStrokeColor">?thColorPrimary</item>
+        <item name="boxStrokeErrorColor">?thError</item>
+        <item name="errorIconTint">?thError</item>
+        <item name="errorTextColor">?thError</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="counterEnabled">false</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="android:theme">@style/cursorTheme</item>
+
+    </style>
+
+
+
+    <style name="textInputLayoutStyleDrop" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">?thTextSub</item>
+        <item name="android:textColor">?thText</item>
+        <item name="hintTextColor">?thTextSub</item>
+        <item name="boxStrokeColor">?thColorPrimary</item>
+        <item name="boxStrokeErrorColor">?thError</item>
+        <item name="errorIconTint">?thError</item>
+        <item name="errorTextColor">?thError</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="counterEnabled">false</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="android:theme">@style/cursorTheme</item>
+    </style>
+
+    <style name="cursorTheme" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="colorControlActivated">?thColorAccent</item>
+    </style>
+
+    <style name="toolbarTitleText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="toolbarTitleTextDialog" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?thTextHeader</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_marginStart">28dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="toolbarImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ic_arrow_left_long</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="iconTint">?thTextHeader</item>
+    </style>
+
+    <style name="dialogTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/rounded_dialog_title</item>
+        <item name="android:textColor">?thText</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/mr_dialog</item>
+        <item name="android:layout_marginEnd">@dimen/mr_dialog</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:outlineSpotShadowColor" tools:targetApi="p">?thShadow</item>
+    </style>
+
+    <style name="customTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+    </style>
+
+
+
+    <!--<style name="customTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>-->
+
+    <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Theme.SheetSelection" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="sheetSelection_titleStyle">@style/Widget.SheetSelection.Title</item>
+        <item name="sheetSelection_itemStyle">@style/Widget.SheetSelection.Item</item>
+        <item name="sheetSelection_indicatorStyle">@style/Widget.SheetSelection.Indicator</item>
+        <item name="sheetSelection_indicatorColor">#cccccc</item>
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="behavior_peekHeight">512dp</item>
+    </style>
+
+    <style name="Widget.SheetSelection.Title" parent="@style/Widget.MaterialComponents.TextView">
+        <item name="android:maxHeight">56dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?thText</item>
+    </style>
+
+    <style name="Widget.SheetSelection.Item" parent="@style/Widget.MaterialComponents.TextView">
+        <item name="android:maxHeight">56dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">?thText</item>
+    </style>
+
+    <style name="Widget.SheetSelection.Indicator" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:maxHeight">4dp</item>
+        <item name="android:minHeight">4dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="cardBackgroundColor">?attr/sheetSelection_indicatorColor</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!--  Material Date Picker -->
+    <style name="MaterialCalendarCustomStyle" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorAccent">?thColorPrimary</item>
+        <item name="colorOnPrimarySurface">@color/lightSuccess</item>
+        <item name="colorSurface">?thBack</item>
+        <item name="colorOnSurface">?thTextHeader</item>
+        <item name="colorPrimarySurface">?thTextHeader</item>
+    </style>
+    <!--  Material Date Picker -->
+    <style name="MaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="colorOnPrimary">@color/sWhite</item>
+        <item name="colorPrimary">@color/lightPrimary</item>
+        <item name="colorAccent">@color/sWhite</item>
+        <item name="colorOnPrimarySurface">?thDialogBack</item>
+        <item name="colorSurface">?thDialogBack</item>
+        <item name="colorOnSurface">?thTextHeader</item>
+        <item name="colorPrimarySurface">?thTextHeader</item>
+    </style>
+
+    <!--  Material Time Picker -->
+    <style name="MaterialTimePickerTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorOnPrimary">@color/sWhite</item>
+        <item name="colorPrimary">@color/lightPrimary</item>
+        <item name="colorAccent">@color/sWhite</item>
+        <item name="colorOnPrimarySurface">?thDialogBack</item>
+        <item name="colorSurface">?thDialogBack</item>
+        <item name="colorOnSurface">?thTextHeader</item>
+        <item name="colorPrimarySurface">?thTextHeader</item>
+    </style>
+
+   <!-- <style name="YearPickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:background">?thDialogBack</item>
+        <item name="buttonBarPositiveButtonStyle">@style/dialogPrimaryButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/dialogAccentButton</item>
+        <item name="android:dialogCornerRadius" tools:ignore="NewApi">26dp</item>
+        <item name="android:capitalize">none</item>
+    </style>-->
+
+    <style name="NiceDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="DialogStyle"  parent="android:Theme.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">75%</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

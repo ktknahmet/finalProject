@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?thBack"
+    android:orientation="vertical">
+
+
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pgBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:indicatorColor="@color/lightSuccess"
+        app:trackCornerRadius="20dp" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detay"
+        style="@style/myCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilfaturaTip"
+                style="@style/textInputLayoutStyleDrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:hint="@string/faturaTip"
+                app:endIconTint="?thText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerFatura"
+                    style="@style/r14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSelectDate"
+                style="@style/textInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:hint="@string/odemetarih">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/selectDate"
+                    style="@style/r14"
+                    android:focusable="false"
+                    android:drawableStart="@drawable/ic_calendar"
+                    android:drawablePadding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAdd"
+        style="@style/btnLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/goster"
+        app:background="?thBack"
+        app:iconGravity="textEnd"
+        tools:ignore="MissingConstraints" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/mr8"
+        android:layout_marginTop="@dimen/mrTopBottom"
+        android:layout_marginEnd="@dimen/mr8"
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/iv_empty_state_not_found" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/titleTextView"
+        style="@style/h16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/mr"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/mr"
+        android:text="@string/not_found"
+        android:textColor="?thTextSub"
+        android:textAlignment="center" />
+
+</LinearLayout>

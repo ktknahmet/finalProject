@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="cell_height">45dp</dimen>
+    <dimen name="row_header_width">55dp</dimen>
+
+    <dimen name="mr">16dp</dimen>
+    <dimen name="mr_dialog">14dp</dimen>
+    <dimen name="mr_card">14dp</dimen>
+    <dimen name="mr_card_list">12dp</dimen>
+    <dimen name="pd_card">12dp</dimen>
+    <dimen name="textInputHeight">56dp</dimen>
+    <dimen name="mr8">8dp</dimen>
+    <dimen name="mrTopBottom">7dp</dimen>
+    <dimen name="mrTitle">8dp</dimen>
+    <dimen name="mrRow">4dp</dimen>
+    <dimen name="mrDialogTop">20dp</dimen>
+    <dimen name="mrDialogBottom">24dp</dimen>
+
+    <!-- Overriding the default values of the tableView -->
+    <dimen name="default_row_header_width" tools:keep="@dimen/default_row_header_width">55dp</dimen>
+    <dimen name="default_column_header_height" tools:keep="@dimen/default_column_header_height">40dp</dimen>
+
+    <dimen name="app_bar_size">60dp</dimen>
+</resources>

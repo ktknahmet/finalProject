@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_size"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?thBack"
+
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/toolbarImage"
+                    style="@style/toolbarImage"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/toolbarTextTitle1"
+                    style="@style/toolbarTitleText"
+                    android:layout_toEndOf="@+id/toolbarImage"
+                    android:text="@string/kayit_ol" />
+
+
+                <ImageButton
+                    android:id="@+id/imgBtnSave"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_save"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pgBar"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnParticipationCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:indicatorColor="@color/lightSuccess"
+        app:trackCornerRadius="20dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            style="@style/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/allData"
+                style="@style/myCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    style="@style/linearLayoutVertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAdsoyad"
+                        style="@style/textInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/textInputHeight"
+                        android:layout_marginTop="2dp"
+                        android:hint="@string/ad_soyad">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addAdsoyad"
+                            style="@style/r14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilEmail"
+                        style="@style/textInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/textInputHeight"
+                        android:layout_marginTop="2dp"
+                        android:hint="@string/email_adres">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/addEmail"
+                            style="@style/r14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                             />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilRafGoz"
+                            style="@style/textInputLayoutStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/textInputHeight"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="36dp">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/addRafGoz"
+                                style="@style/r14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:focusable="false"
+                                android:text="+90"
+                                tools:ignore="SpeakableTextPresentCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilTelefon"
+                            style="@style/textInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/textInputHeight"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginStart="60dp"
+                            android:hint="@string/telefon_no">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/addPhone"
+                                style="@style/r14"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone"
+                                tools:ignore="SpeakableTextPresentCheck" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </RelativeLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPass"
+                        style="@style/textInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sifreniz"
+                        app:hintAnimationEnabled="true"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="?thIcon">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtPassword"
+                            style="@style/r14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberPassword"
+                            tools:targetApi="m" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>

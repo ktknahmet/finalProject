@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="false"
+    android:orientation="vertical"
+    android:background="?thBack"
+    android:gravity="center"
+    tools:ignore="Overdraw">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="187dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/iv_question_boy"
+            android:scaleType="fitCenter" />
+
+
+        <TextView
+            android:id="@+id/tvForgotPassTitle"
+            style="@style/r24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cikmak_istiyormusunuz" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linearLayoutVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOk"
+            style="@style/btnLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/evet"
+            android:layout_weight="1"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+</LinearLayout>

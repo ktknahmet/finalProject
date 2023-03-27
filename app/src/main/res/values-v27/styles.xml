@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="MaterialTheme.NoActionBar.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionButtonStyle">@style/AppTheme.Widget.ActionButton</item>
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+        <item name="android:navigationBarColor">?thNavBar</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <item name="thDivider">@color/lightCardBorder</item>
+        <item name="thColorPrimary">@color/lightPrimary</item>
+        <item name="thColorAccent">@color/lightAccent</item>
+        <item name="thBack">@color/lightBack</item>
+        <item name="thText">@color/lightText</item>
+        <item name="thTextHeader">@color/lightHeaderText</item>
+        <item name="thTextSub">@color/lightSubText</item>
+        <item name="thNavBar">@color/sWhite</item>
+        <item name="thCard">@color/lightCardBack</item>
+        <item name="thDrawer">@color/lightBack</item>
+        <item name="thIcon">@color/lightText</item>
+        <item name="thTextHint">@color/lightSubText</item>
+        <item name="thDialogBack">@color/lightBack</item>
+        <item name="thDialogTitle">@color/lightCardBack</item>
+        <item name="thWarning">@color/lightWarning</item>
+        <item name="thError">@color/lightError</item>
+        <item name="thSuccess">@color/lightSuccess</item>
+        <item name="thBorder">@color/lightCardBorder</item>
+        <item name="thStroke">@color/lightStroke</item>
+        <item name="thShadow">@color/lightShadow</item>
+        <item name="thTertiary">@color/lightTertiary</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+    <!-- Dark -->
+    <style name="MaterialTheme.NoActionBar.Dark" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionButtonStyle">@style/AppTheme.Widget.ActionButton</item>
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+        <item name="android:navigationBarColor">?thNavBar</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <item name="thDivider">@color/darkCardBorder</item>
+        <item name="thColorPrimary">@color/darkPrimary</item>
+        <item name="thColorAccent">@color/darkAccent</item>
+        <item name="thBack">@color/darkBack</item>
+        <item name="thText">@color/darkText</item>
+        <item name="thTextHeader">@color/darkHeaderText</item>
+        <item name="thTextSub">@color/darkSubText</item>
+        <item name="thNavBar">@color/darkCardBack</item>
+        <item name="thCard">@color/darkCardBack</item>
+        <item name="thDrawer">@color/darkBack</item>
+        <item name="thIcon">@color/darkText</item>
+        <item name="thTextHint">@color/darkSubText</item>
+        <item name="thDialogBack">@color/darkBack</item>
+        <item name="thDialogTitle">@color/darkCardBack</item>
+        <item name="thWarning">@color/darkWarning</item>
+        <item name="thError">@color/darkError</item>
+        <item name="thSuccess">@color/darkSuccess</item>
+        <item name="thBorder">@color/darkCardBorder</item>
+        <item name="thStroke">@color/darkStroke</item>
+        <item name="thShadow">@color/darkShadow</item>
+        <item name="thTertiary">@color/darkTertiary</item>
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialog</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
+        <item name="android:divider">?thDivider</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="colorPrimary">?thColorPrimary</item>
+        <item name="colorPrimaryDark">?thColorPrimary</item>
+        <item name="colorAccent">?thColorAccent</item>
+        <item name="colorControlNormal">?thColorAccent</item>
+        <item name="colorControlActivated">?thColorAccent</item>
+        <item name="colorControlHighlight">?thColorAccent</item>
+        <item name="android:colorBackground">?thBack</item>
+        <item name="android:colorForeground">?thBack</item>
+        <item name="android:editTextColor">?thText</item>
+        <item name="android:textColorHint">?thText</item>
+        <item name="android:textColorPrimary">?thText</item>
+        <item name="android:textColorSecondary">?thTextHeader</item>
+    </style>
+</resources>

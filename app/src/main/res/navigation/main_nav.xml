@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/settingsUserFragment"
+        android:name="com.ktknahmet.final_project.ui.page.SettingsUserFragment"
+        android:label="SettingsUserFragment" />
+    <fragment
+        android:id="@+id/bildirimFragment"
+        android:name="com.ktknahmet.final_project.ui.notification.BildirimlerFragment"
+        android:label="fragment_harcamalar"
+         />
+
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.ktknahmet.final_project.ui.login.LogoutFragment"
+        android:label="LogoutFragment" >
+        <action
+            android:id="@+id/action_logoutFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popUpTo="@id/logoutFragment"
+            app:popExitAnim="@anim/anim_fade_out" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.ktknahmet.final_project.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ktknahmet.final_project.ui.page.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_spendingFragment"
+            app:destination="@id/spendingFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out" />
+        <action
+            android:id="@+id/action_profileFragment_to_bildirimFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/bildirimFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_paymentFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addfriendsFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/addfriendsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_friendsFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/friendsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_graphFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/graphFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/spendingFragment"
+        android:name="com.ktknahmet.final_project.ui.spending.SpendingFragment"
+        android:label="SpendingFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.ktknahmet.final_project.ui.payment.PaymentFragment"
+        android:label="fragment_payment"
+         />
+    <fragment
+        android:id="@+id/addfriendsFragment"
+        android:name="com.ktknahmet.final_project.ui.addfriends.AddFriendsFragment"
+        android:label="AddFriendsFragment" />
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="com.ktknahmet.final_project.ui.friends.FriendsFragment"
+        android:label="fragment_friends"
+         >
+        <action
+            android:id="@+id/action_friendsFragment_to_addfriendsFragment"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:popUpTo="@id/friendsFragment"
+            app:destination="@id/addfriendsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/graphFragment"
+        android:name="com.ktknahmet.final_project.ui.graphic.GraphFragment"
+        android:label="GraphFragment" />
+
+</navigation>

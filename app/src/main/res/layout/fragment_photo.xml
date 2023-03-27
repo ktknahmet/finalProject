@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?thBack"
+    android:focusable="false"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            style="@style/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <RelativeLayout
+                style="@style/relativeLayout"
+                android:id="@+id/kemaraTikla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/civItemKamera"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    app:civ_border_width="1dp"
+                    app:civ_shadow="false"
+                    app:civ_shadow_radius="0dp"
+                    app:srcCompat="@drawable/ic_device_camera" />
+
+
+                <TextView
+                    android:id="@+id/camera"
+                    style="@style/m14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pd_card"
+                    android:layout_toEndOf="@+id/civItemKamera"
+                    android:text="@string/camera" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/relativeLayout"
+                android:id="@+id/galeriTikla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/civItemsil"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    app:civ_border_width="1dp"
+                    app:civ_shadow_radius="0dp"
+                    app:srcCompat="@drawable/ic_gallery" />
+
+
+                <TextView
+                    android:id="@+id/galeri"
+                    style="@style/m14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pd_card"
+                    android:layout_toEndOf="@+id/civItemsil"
+                    android:text="@string/gallery" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+</LinearLayout>

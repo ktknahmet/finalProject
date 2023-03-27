@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?thBack"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_size"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?thBack"
+
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/toolbarImage"
+                    style="@style/toolbarImage"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    style="@style/toolbarTitleText"
+                    android:layout_toEndOf="@+id/toolbarImage"
+                    android:text="@string/odeme_ekle" />
+
+
+                <ImageButton
+                    android:id="@+id/imgBtnSave"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_save"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pgBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:indicatorColor="@color/lightSuccess"
+        app:trackCornerRadius="20dp" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detay"
+        style="@style/myCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilfaturaTip"
+                style="@style/textInputLayoutStyleDrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:hint="@string/faturaTip"
+                app:endIconTint="?thText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerFatura"
+                    style="@style/r14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilodemeTip"
+                style="@style/textInputLayoutStyleDrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:hint="@string/odeme_tipi"
+                app:endIconTint="?thText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerOdeme"
+                    style="@style/r14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSelectDate"
+                style="@style/textInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:hint="@string/odemetarih">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/selectDate"
+                    style="@style/r14"
+                    android:focusable="false"
+                    android:drawableStart="@drawable/ic_calendar"
+                    android:drawablePadding="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/mr8"
+        android:layout_marginTop="@dimen/mrTopBottom"
+        android:layout_marginEnd="@dimen/mr8" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/iv_empty_state_not_found" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/titleTextView"
+        style="@style/h16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/mr"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/mr"
+        android:text="@string/not_found"
+        android:textColor="?thTextSub"
+        android:textAlignment="center" />
+
+</LinearLayout>
