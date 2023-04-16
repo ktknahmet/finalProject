@@ -7,33 +7,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.crazylegend.kotlinextensions.views.setbackgroundColorResource
 import com.crazylegend.kotlinextensions.views.visible
 import com.ktknahmet.final_project.R
+import com.ktknahmet.final_project.databinding.AddFriendPaymentRowBinding
 import com.ktknahmet.final_project.databinding.AddPaymentRowBinding
+import com.ktknahmet.final_project.model.AddFriendPayment
 import com.ktknahmet.final_project.model.AddPayment
-import com.ktknahmet.final_project.utils.Constant.ALACAK
-import com.ktknahmet.final_project.utils.Constant.BORC
-import com.ktknahmet.final_project.utils.Constant.ODENDI
-import com.ktknahmet.final_project.utils.Constant.ODENECEK
-import com.ktknahmet.final_project.utils.Constant.TAKSITLIODEME
-import com.ktknahmet.final_project.utils.Constant.TLICON
+import com.ktknahmet.final_project.utils.Constant
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.roundToLong
 
-class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Adapter<AddPaymentAdapter.DetailsHolder>() {
+class AddFriendPaymentAdapter (private val alldata:List<AddFriendPayment>): RecyclerView.Adapter<AddFriendPaymentAdapter.DetailsHolder>() {
     //recyclerview oluştururuz ve bize 3 tane method override etmemizi sağlar
-    private var list: List<AddPayment> = ArrayList()
+    private var list: List<AddFriendPayment> = ArrayList()
 
     init {
         list = alldata
     }
 
 
-    class DetailsHolder(val binding: AddPaymentRowBinding) : RecyclerView.ViewHolder(binding.root)
+    class DetailsHolder(val binding: AddFriendPaymentRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailsHolder {
         val binding =
-            AddPaymentRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            AddFriendPaymentRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         //bağlama işlemi gösterilecek tasarımı recyclerview bağlama işlemi
         return DetailsHolder(binding)
     }
@@ -49,7 +45,7 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
 
 
         with(holder) {
-            val p: AddPayment = list[position]
+            val p: AddFriendPayment = list[position]
             val dateFormat = SimpleDateFormat("dd/MM/yyyy")
             val dateShow = Date(p.TARIH!!)
 
@@ -58,16 +54,16 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
             gun = (gun / (1000*60*60*24))
 
             binding.tvTarihGoster.text = dateFormat.format(dateShow)
-            binding.tvFaturaGoster.text = p.FATURATIP
+            binding.tvArkadasGoster.text = p.ARKADAS
 
-            binding.tvMiktarGoster.text = p.BUTCE.toString() +" " + TLICON
+            binding.tvMiktarGoster.text = p.BUTCE.toString() +" " + Constant.TLICON
 
 
-            if (p.ODEMETIP == ODENDI) {
-                binding.tvOdemeGoster.text = ODENDI
+            if (p.ODEMETIP == Constant.ODENDI) {
+                binding.tvOdemeGoster.text = Constant.ODENDI
                 binding.tvDurum.setbackgroundColorResource(R.color.lightSuccess)
             }
-            if (p.ODEMETIP == ODENECEK) {
+            if (p.ODEMETIP == Constant.ODENECEK) {
                 binding.tvSonOdeme.visible()
                 if(gun <0){
                     val g =gun.toString().replace("-","")
@@ -76,10 +72,10 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
                     binding.tvOdemeTarihGoster.text = ("$gun Gün Kaldı")
                 }
 
-                binding.tvOdemeGoster.text = ODENECEK
+                binding.tvOdemeGoster.text = Constant.ODENECEK
                 binding.tvDurum.setbackgroundColorResource(R.color.lightWarning)
             }
-            if (p.ODEMETIP == TAKSITLIODEME) {
+            if (p.ODEMETIP == Constant.TAKSITLIODEME) {
                 binding.tvSonOdeme.visible()
                 if(gun <0){
                     val g =gun.toString().replace("-","")
@@ -87,15 +83,15 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
                 }else{
                     binding.tvOdemeTarihGoster.text = ("$gun Gün Kaldı")
                 }
-                binding.tvOdemeGoster.text = TAKSITLIODEME
+                binding.tvOdemeGoster.text = Constant.TAKSITLIODEME
                 binding.tvDurum.setbackgroundColorResource(R.color.lightShadow)
             }
-            if (p.ODEMETIP == BORC) {
-                binding.tvOdemeGoster.text = BORC
+            if (p.ODEMETIP == Constant.BORC) {
+                binding.tvOdemeGoster.text = Constant.BORC
                 binding.tvDurum.setbackgroundColorResource(R.color.lightError)
             }
-            if (p.ODEMETIP == ALACAK) {
-                binding.tvOdemeGoster.text = ALACAK
+            if (p.ODEMETIP == Constant.ALACAK) {
+                binding.tvOdemeGoster.text = Constant.ALACAK
                 binding.tvDurum.setbackgroundColorResource(R.color.lightPrimary)
             }
 

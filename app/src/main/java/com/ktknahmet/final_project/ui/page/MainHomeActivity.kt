@@ -44,6 +44,7 @@ class MainHomeActivity : BaseActivity() {
                 R.id.friendsFragment ->hideBottomNav()
                 R.id.addfriendsFragment ->hideBottomNav()
                 R.id.graphFragment ->hideBottomNav()
+                R.id.borcDurum ->hideBottomNav()
 
             }
         }

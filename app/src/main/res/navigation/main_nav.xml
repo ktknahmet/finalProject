@@ -79,6 +79,13 @@
             app:popEnterAnim="@anim/anim_fade_in"
             app:popExitAnim="@anim/anim_fade_out"
             app:destination="@id/graphFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_borcDurum"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/borcDurum" />
 
     </fragment>
     <fragment
@@ -114,5 +121,10 @@
         android:id="@+id/graphFragment"
         android:name="com.ktknahmet.final_project.ui.graphic.GraphFragment"
         android:label="GraphFragment" />
+    <fragment
+        android:id="@+id/borcDurum"
+        android:name="com.ktknahmet.final_project.ui.paymentStatus.BorcDurum"
+        android:label="fragment_borc_durum"
+        tools:layout="@layout/fragment_borc_durum" />
 
 </navigation>

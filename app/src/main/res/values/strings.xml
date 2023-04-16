@@ -61,6 +61,7 @@
     <string name="pdf_olusturmak_istermisiniz">Pdf oluşturmak istiyor musunuz?</string>
     <string name="harcama_bulunamadı">Harcama Bulunamadı</string>
     <string name="arkadaslarim">Arkadaşlarım</string>
+    <string name="arkadas">Arkadas</string>
     <string name="arkadas_ekle">Arkadaş Ekle</string>
     <string name="arkdas_eklendi">Arkdaş Grubu Oluşturuldu</string>
     <string name="arkadas_bos">Hiç Arkadaş Eklemediniz</string>
@@ -71,6 +72,8 @@
     <string name="arkadas_var">Listede Aynı Kişi Bulunmaktadır.</string>
     <string name="iptal">İptal</string>
     <string name="grupbaslik">Grup Adınızı Oluşturun</string>
+    <string name="borc_durum">Borç Durum</string>
+    <string name="arkadas_sec">Arkadaş Seçiniz</string>
 
     <string name="gerekli_alan">Bilgileri Eksiksiz Doldurunuz</string>
     <string name="kullanıcı_olustu">Kullanıcı Oluştu</string>

@@ -34,7 +34,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
        binding.recyclerview.itemClick { _, position ->
            when (position) {
-               //recyclerviewlerin itemlerine tıklanıldığı zaman tıklanılan positionuna göre gidilecek sayfalar belirlenir
+
                0 -> navigate(R.id.action_profileFragment_to_spendingFragment)
                1 -> navigate(R.id.action_profileFragment_to_bildirimFragment)
                2 -> navigate(R.id.action_profileFragment_to_paymentFragment)
@@ -43,6 +43,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                5 -> navigate(R.id.action_profileFragment_to_graphFragment)
                6 -> {
                    openPdfFile()
+               }
+               7 -> {
+                   navigate(R.id.action_profileFragment_to_borcDurum)
                }
            }
        }

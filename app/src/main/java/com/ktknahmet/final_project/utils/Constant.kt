@@ -57,6 +57,7 @@ object Constant {
         ProfileDetails(R.drawable.iv_kullanicilar,"Arkadaş Ekle"),
         ProfileDetails(R.drawable.iv_pozisyon,"Arkadaşlarım"),
         ProfileDetails(R.drawable.iv_report,"Grafikler"),
-        ProfileDetails(R.drawable.iv_pdf,"Pdflerim")
+        ProfileDetails(R.drawable.iv_pdf,"Pdflerim"),
+        ProfileDetails(R.drawable.ic_borc_durum,"Toplu Borç Durum")
     )
 }

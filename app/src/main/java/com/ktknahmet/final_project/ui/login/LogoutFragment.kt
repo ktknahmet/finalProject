@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.ktknahmet.final_project.MainActivity
 import com.ktknahmet.final_project.databinding.FragmentLogoutBinding
 import com.ktknahmet.final_project.ui.base.BaseFragment
+import com.ktknahmet.final_project.utils.myObserve
 import com.ktknahmet.final_project.viewModel.LoginViewModel
 
 
@@ -33,6 +34,7 @@ class LogoutFragment : BaseFragment<FragmentLogoutBinding>(FragmentLogoutBinding
        }
 
     }
+
 
 
 }

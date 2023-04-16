@@ -1,5 +1,6 @@
 package com.ktknahmet.final_project.ui.friends
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,6 +62,7 @@ class FriendsFragment :  BaseFragment<FragmentFriendsBinding>(FragmentFriendsBin
         val itemTouchHelper = ItemTouchHelper(swipeToDelete)
         itemTouchHelper.attachToRecyclerView(binding.recyclerview)
     }
+    @SuppressLint("NotifyDataSetChanged")
     private fun showDialog(position: Int) {
         showDeleteDialog(
             confirm = {
