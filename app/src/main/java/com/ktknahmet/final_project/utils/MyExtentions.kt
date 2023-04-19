@@ -102,7 +102,7 @@ fun Activity.showConfirmDialog(
 
 fun saveImage(imageUri: Uri?,context:Context,name:String){
     val pref = MainSharedPreferences(context, MyPref.bilgiler)
-    val firestore = Firebase.firestore
+
     val storage = Firebase.storage
     val reference = storage.reference
     val uid = UUID.randomUUID()

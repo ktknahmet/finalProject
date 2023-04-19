@@ -1,5 +1,6 @@
 package com.ktknahmet.final_project.utils
 
+import android.graphics.Color
 import com.ktknahmet.final_project.R
 import com.ktknahmet.final_project.model.ProfileDetails
 
@@ -49,6 +50,17 @@ object Constant {
         BORC,
         ALACAK
     )
+
+    val LISTCOLOR = intArrayOf(
+        Color.rgb(32, 161, 218),
+        Color.rgb(217, 125, 33),
+        Color.rgb(102, 120, 128),
+        Color.rgb(217, 87, 87),
+        Color.rgb(23, 153, 110),
+        Color.rgb(51, 87, 102),
+        Color.rgb(217, 155, 33)
+    )
+
 
     val PROFILE_TYPE = arrayOf(
         ProfileDetails(R.drawable.iv_tahsilat,"Harcamalarım"),

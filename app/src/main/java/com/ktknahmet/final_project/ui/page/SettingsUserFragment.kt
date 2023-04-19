@@ -8,11 +8,12 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.RelativeLayout
+import com.crazylegend.kotlinextensions.views.gone
 import com.crazylegend.kotlinextensions.views.onClick
+import com.crazylegend.kotlinextensions.views.visible
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
-
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
@@ -26,7 +27,6 @@ import com.ktknahmet.final_project.utils.Errors
 import com.ktknahmet.final_project.utils.MainSharedPreferences
 import com.ktknahmet.final_project.utils.generalUtils.str
 import com.ktknahmet.final_project.utils.onCheck
-import com.ktknahmet.final_project.utils.saveImage
 import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
 import java.util.HashMap
 
@@ -54,9 +54,6 @@ class SettingsUserFragment : BaseFragment<FragmentSettingsUserBinding>(FragmentS
         binding.civPhoto.setOnClickListener {
             bottomSheet()
         }
-        binding.btnSave.onClick {
-            saveImage(cameraUri, requireContext(),email)
-        }
 
         binding.btnSave.onClick {
             if(binding.edtPassword.text!!.isEmpty() || binding.edtPasswordAgain.text!!.isEmpty()){
@@ -65,10 +62,11 @@ class SettingsUserFragment : BaseFragment<FragmentSettingsUserBinding>(FragmentS
             }else if(binding.edtPassword.text.toString().length <6 || binding.edtPasswordAgain.text.toString().length <6){
                 binding.tilPass.error = Errors.minPass
                 binding.tilPassAgain.error = Errors.minPass
-            }else if(binding.edtPassword.text!! != binding.edtPasswordAgain.text!!){
-                toastInfo(str(R.string.sifreler_aynidegil))
-            }else{
+            }else if(binding.edtPassword.text!!.toString() == binding.edtPasswordAgain.text!!.toString()){
                 updateData()
+
+            }else{
+                toastInfo(str(R.string.sifreler_aynidegil))
             }
 
         }
@@ -149,22 +147,24 @@ class SettingsUserFragment : BaseFragment<FragmentSettingsUserBinding>(FragmentS
     }
 
     private fun updateData(){
+        binding.pgBar.visible()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val add = HashMap<String,Any>()
         add["FULLNAME"] = binding.addAdsoyad.text.toString()
         add["EMAIL"] = email
         add["PHONE"] = binding.addTelefon.text.toString()
         add["SIFRE"] = binding.edtPassword.text.toString()
-        add["PHOTOURL"] =""
+        add["PHOTOURL"] =cameraUri.toString()
 
         db.collection("userData").whereEqualTo("EMAIL",email).get().addOnSuccessListener {
             for(document in it){
                 document.reference.update(add)
             }
+            binding.pgBar.gone()
             toastSuccess(str(R.string.bilgiler_guncellendi))
         }.addOnFailureListener {
             toastError(it.toString())
-
+            binding.pgBar.gone()
         }
 
     }

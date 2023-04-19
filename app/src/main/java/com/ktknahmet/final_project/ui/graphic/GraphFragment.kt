@@ -3,35 +3,58 @@ package com.ktknahmet.final_project.ui.graphic
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.crazylegend.kotlinextensions.views.onClick
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import com.crazylegend.kotlinextensions.views.visible
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.ktknahmet.final_project.R
-
 import com.ktknahmet.final_project.databinding.FragmentGraphBinding
+import com.ktknahmet.final_project.model.Contact
 import com.ktknahmet.final_project.ui.base.BaseFragment
 import com.ktknahmet.final_project.utils.Constant
+import com.ktknahmet.final_project.utils.MainSharedPreferences
+import com.ktknahmet.final_project.utils.generalUtils.str
+import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::inflate)  {
     @SuppressLint("SimpleDateFormat")
-    private var dateNow = Date()
     private val sdf2 = SimpleDateFormat("dd-MM-yyyy")
+    private var dateNow = Date()
+    private var arkadas=""
+    private var email = ""
+    private lateinit var  pref : MainSharedPreferences
+    private var selectDateTime = sdf2.format(dateNow)
+    private lateinit var listFriends: ArrayList<String>
+    private lateinit var listOdemeTip: ArrayList<String>
     private var faturaTip = ""
-    var selectDateTime = sdf2.format(dateNow)
+    private var odemeTip = ""
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
+        pref = MainSharedPreferences(requireActivity(), MyPref.bilgiler)
+        email = pref.getString(MyPref.email, "").toString()
         binding.selectDate.setText(selectDateTime)
+        
         faturalar()
-        graph()
+        allFriends()
+        odemeTipi()
+
+        binding.imgShow.onClick {
+            graph()
+        }
         binding.selectDate.onClick {
             val cal = Calendar.getInstance()
             val year = cal.get(Calendar.YEAR)
@@ -69,31 +92,81 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
             }
 
     }
+    private fun allFriends(){
+        listFriends = ArrayList()
+        val contactList= ArrayList<Contact>()
+        var listGrup: String
+        val gson = Gson()
+
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+        val query =db.collection("arkadaslarim").whereEqualTo("EMAIL", email).get()
+
+        query.addOnSuccessListener {
+            if(!it.isEmpty){
+                for(i in it.documents.indices){
+                    val grupinfo = it.documents[i].get("GRUPINFO")
+                    listGrup = gson.toJson(grupinfo)
+                    contactList.addAll(gson.fromJson(listGrup, object: TypeToken<ArrayList<Contact>>() {}.type))
+                }
+                for(i in contactList){
+                    listFriends.add(i.name.toString())
+                }
+                listFriends.add("Hiçbiri")
+                val spinnerAdapter = activity?.let {list->
+                    ArrayAdapter(list, R.layout.view_spinner_dropdown_item, listFriends)
+                }!!
+
+                binding.spinnerArkadas.setAdapter(spinnerAdapter)
+                binding.spinnerArkadas.onItemClickListener =
+                    AdapterView.OnItemClickListener { parent, _, position, _ ->
+                        arkadas = parent.getItemAtPosition(position) as String
+
+                    }
+            }else{
+                toastError(str(R.string.arkadas_bos))
+            }
+
+        }.addOnFailureListener {
+            toastError(it.message.toString())
+        }
+    }
+    private fun odemeTipi() {
+        listOdemeTip = ArrayList()
+        listOdemeTip.addAll(Constant.ODEMETIPI)
+
+        val spinnerAdapter = activity?.let {
+            ArrayAdapter(it, R.layout.view_spinner_dropdown_item, listOdemeTip)
+        }!!
+
+        binding.spinnerOdeme.setAdapter(spinnerAdapter)
+        binding.spinnerOdeme.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, _, position, _ ->
+                odemeTip = parent.getItemAtPosition(position) as String
+
+            }
+    }
+
 
     private fun graph(){
-        val aaChartModel : AAChartModel = AAChartModel()
-            .chartType(AAChartType.Area)
-            .title("title")
-            .subtitle("subtitle")
-            .dataLabelsEnabled(true)
-            .series(arrayOf(
-                AASeriesElement()
-                    .name("Tokyo")
-                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-                AASeriesElement()
-                    .name("NewYork")
-                    .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
-                AASeriesElement()
-                    .name("London")
-                    .data(arrayOf(0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0)),
-                AASeriesElement()
-                    .name("Berlin")
-                    .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
-            )
-            )
+       val list :ArrayList<BarEntry> = ArrayList()
 
-        //The chart view object calls the instance object of AAChartModel and draws the final graphic
-        binding.chartView.aa_drawChartWithChartModel(aaChartModel)
+        list.add(BarEntry(100f,3f))
+        list.add(BarEntry(102f,5f))
+        list.add(BarEntry(104f,6f))
+        list.add(BarEntry(108f,8f))
+        list.add(BarEntry(110f,11f))
+
+        val barDataSet = BarDataSet(list,"ahmet")
+        barDataSet.setColors(Constant.LISTCOLOR,255)
+        barDataSet.valueTextColor = Color.BLACK
+        val barData = BarData(barDataSet)
+        binding.chartView.setFitBars(true)
+        binding.chartView.data = barData
+        binding.chartView.description.text = "Aktekin"
+        binding.chartView.animateY(20)
+        binding.chartView.visible()
+
+
     }
 
 }
