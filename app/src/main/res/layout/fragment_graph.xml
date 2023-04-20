@@ -34,7 +34,15 @@
                     style="@style/toolbarTitleText"
                     android:layout_toEndOf="@+id/toolbarImage"
                     android:text="@string/grafikler" />
-
+                <ImageButton
+                    android:id="@+id/imgShow"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/ic_save"
+                    tools:ignore="ContentDescription" />
             </RelativeLayout>
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -61,18 +69,17 @@
             style="@style/linearLayoutVertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilfaturaTip"
+                android:id="@+id/tilarkadas"
                 style="@style/textInputLayoutStyleDrop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/textInputHeight"
                 android:layout_marginTop="4dp"
-                android:hint="@string/faturaTip"
+                android:hint="@string/arkadas_sec"
                 app:endIconTint="?thText">
 
                 <AutoCompleteTextView
-                    android:id="@+id/spinnerFatura"
+                    android:id="@+id/spinnerArkadas"
                     style="@style/r14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -81,6 +88,24 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilodemeTip"
+                style="@style/textInputLayoutStyleDrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:hint="@string/odeme_tipi"
+                app:endIconTint="?thText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerOdeme"
+                    style="@style/r14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilSelectDate"
                 style="@style/textInputLayoutStyle"
@@ -104,8 +129,9 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-    <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+    <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chartView"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
@@ -113,5 +139,5 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp">
 
-    </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
+    </com.github.mikephil.charting.charts.PieChart>
 </LinearLayout>

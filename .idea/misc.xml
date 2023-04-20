@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/activity_add_user.xml" value="0.12360688956433637" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/activity_check_phone.xml" value="0.11302083333333333" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/activity_main.xml" value="0.22780797101449277" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/activity_main_home.xml" value="0.20606884057971014" />
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/add_friend_payment_row.xml" value="0.25416666666666665" />
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/add_payment_row.xml" value="0.25416666666666665" />
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/dialog_amount.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_bildirimler.xml" value="0.25416666666666665" />
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_borc_durum.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_graph.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_payment.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_pdf.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_settings_user.xml" value="0.11302083333333333" />
+        <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_settings_user.xml" value="0.16799999999999998" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/fragment_spending.xml" value="0.25416666666666665" />
         <entry key="..\:/projeler/final_project/app/src/main/res/layout/odenecekl_row.xml" value="0.25416666666666665" />
       </map>

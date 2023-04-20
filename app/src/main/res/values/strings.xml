@@ -19,6 +19,7 @@
     <string name="evet">Evet</string>
     <string name="goster">Göster</string>
     <string name="veri_yok">Henüz İşlem Girmediniz</string>
+
     <string name="question_delete">Silmek istiyor musunuz?</string>
     <string name="sil_caps">SİL</string>
     <string name="kaydet_caps">KAYDET</string>

@@ -18,6 +18,7 @@ object Constant {
     const val TAKSITLIODEME="Taksitli Ödeme"
     const val BORC = "Borç"
     const val ALACAK ="Alacak"
+    const val HEPSI ="Hepsi"
 
     const val TLICON = "\u20BA"
     const val EURICON = "\u20AC"

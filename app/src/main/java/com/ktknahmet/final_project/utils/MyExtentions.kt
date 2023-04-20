@@ -1,5 +1,6 @@
 package com.ktknahmet.final_project.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
@@ -32,6 +33,7 @@ import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
 import com.skydoves.whatif.whatIfNotNull
 import okhttp3.ResponseBody
 import retrofit2.Response
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -98,6 +100,12 @@ fun Activity.showConfirmDialog(
         })
 
 
+}
+@SuppressLint("SimpleDateFormat")
+fun convertLongToTime(time: Long): String {
+    val date = Date(time)
+    val format = SimpleDateFormat("dd-MM-yyyy")
+    return format.format(date)
 }
 
 fun saveImage(imageUri: Uri?,context:Context,name:String){

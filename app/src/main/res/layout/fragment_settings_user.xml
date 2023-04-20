@@ -58,6 +58,14 @@
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pgBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:indicatorColor="@color/lightSuccess"
+            app:trackCornerRadius="20dp" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/allData"
@@ -83,7 +91,6 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/addAdsoyad"
                         style="@style/r14"
-                        android:focusable="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -99,7 +106,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/addTelefon"
                         style="@style/r14"
-                        android:focusable="false"
+
                         android:layout_width="match_parent"
                         android:inputType="phone"
                         android:layout_height="wrap_content" />
