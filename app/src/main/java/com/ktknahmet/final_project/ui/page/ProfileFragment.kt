@@ -41,21 +41,14 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                3 -> navigate(R.id.action_profileFragment_to_addfriendsFragment)
                4 -> navigate(R.id.action_profileFragment_to_friendsFragment)
                5 -> navigate(R.id.action_profileFragment_to_graphFragment)
-               6 -> {
-                   openPdfFile()
-               }
-               7 -> {
-                   navigate(R.id.action_profileFragment_to_borcDurum)
-               }
+               6 -> navigate(R.id.action_profileFragment_to_pdfViewer)
+               7 -> navigate(R.id.action_profileFragment_to_borcDurum)
+
            }
        }
 
     }
-    private fun openPdfFile(){
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "*/*"
-        startActivityForResult(intent, 200)
-    }
+
     private fun showData(){
         val mAdapter = ProfileAdapter(PROFILE_TYPE.toList())
         binding.recyclerview.apply {

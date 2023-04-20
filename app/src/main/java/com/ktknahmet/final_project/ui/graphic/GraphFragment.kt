@@ -40,7 +40,7 @@ import kotlin.collections.ArrayList
 
 class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::inflate)  {
     @SuppressLint("SimpleDateFormat")
-    private val sdf2 = SimpleDateFormat("dd-MM-yyyy")
+    private val sdf2 = SimpleDateFormat("dd.MM.yyyy")
     private var dateNow = Date()
     private var arkadas=""
     private var email = ""
@@ -88,7 +88,7 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 R.style.MaterialCalendarCustomStyle,
                 { _, y, m, d ->
                     val ay = m + 1
-                    selectDateTime = ("$d-$ay-$y")
+                    selectDateTime = ("$d.$ay.$y")
                     binding.selectDate.setText(selectDateTime)
                 },
                 year,
@@ -274,7 +274,9 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         val barData = PieData(pieDataSet)
         binding.chartView.data = barData
 
-        if(value==2){
+        if(value==1){
+            binding.chartView.centerText = "Arkdaş Seçilmedi"
+        }else{
             binding.chartView.centerText = arkadas
         }
         binding.chartView.description.text = "$selectDateTime -- ${sdf2.format(dateNow)}"

@@ -12,9 +12,6 @@ import com.crazylegend.kotlinextensions.views.onClick
 import com.crazylegend.kotlinextensions.views.visible
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.itextpdf.text.Document
-import com.itextpdf.text.Paragraph
-import com.itextpdf.text.pdf.PdfWriter
 import com.ktknahmet.final_project.R
 import com.ktknahmet.final_project.adapter.AddPaymentAdapter
 import com.ktknahmet.final_project.databinding.FragmentSpendingBinding
@@ -48,7 +45,7 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
             showConfirmDialog(
                 title = str(R.string.pdf_olusturmak_istermisiniz),
                 confirm = {
-                    savePdf()
+
                 },
                 buttonPositiveText = str(R.string.kaydet),
                 buttonNegativeText = str(R.string.hayir),
@@ -105,22 +102,5 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
         }
         allList = ArrayList()
     }
-    private fun savePdf(){
-        val mDoc = Document()
-        val mFileName = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(System.currentTimeMillis())
-        val mPdfPath = Environment.getExternalStorageDirectory().toString() +"/"+mFileName+".pdf"
-        try {
-            PdfWriter.getInstance(mDoc,FileOutputStream(mPdfPath))
-            mDoc.open()
-            mDoc.addAuthor("Ahmet Aktekin oluşturdu")
-            for( i in allList.indices){
-                mDoc.add(Paragraph(allList[i].FATURATIP +"/" + allList[i].ODEMETIP))
-            }
-            mDoc.close()
-            toastSuccess("$mFileName.pdf\n kaydedildi\n$mPdfPath")
 
-        }catch (e:Exception){
-            toastError(e.message.toString())
-        }
-    }
 }

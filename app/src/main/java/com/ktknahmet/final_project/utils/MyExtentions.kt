@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.ktknahmet.final_project.utils.niceDialog.MyDialog
 import com.ktknahmet.final_project.utils.niceDialog.ViewConvertListener
-import com.crazylegend.kotlinextensions.fragments.show
 import com.crazylegend.kotlinextensions.isNull
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.ktknahmet.final_project.R
@@ -107,6 +106,7 @@ fun convertLongToTime(time: Long): String {
     val format = SimpleDateFormat("dd-MM-yyyy")
     return format.format(date)
 }
+
 
 fun saveImage(imageUri: Uri?,context:Context,name:String){
     val pref = MainSharedPreferences(context, MyPref.bilgiler)
@@ -197,7 +197,7 @@ fun <T> SingleLiveEvent<NetworkResult<T>>.myObserve(
     this.observe(
         viewLifecycleOwner
     ) {
-        it?.let {
+        it.let {
             when (it) {
                 is NetworkResult.Success -> {
                     success(it.data)

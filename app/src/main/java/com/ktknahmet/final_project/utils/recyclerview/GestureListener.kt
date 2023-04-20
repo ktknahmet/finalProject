@@ -14,9 +14,9 @@ class GestureListener(
     private val type: Int
 ) : GestureDetector.SimpleOnGestureListener() {
 
-    override fun onSingleTapUp(e: MotionEvent): Boolean = e.getChild(SINGLE_TAP_UP) ?: true
+    override fun onSingleTapUp(e: MotionEvent): Boolean = e.getChild(SINGLE_TAP_UP)
 
-    override fun onDoubleTap(e: MotionEvent): Boolean = e.getChild(DOUBLE_TAP) ?: true
+    override fun onDoubleTap(e: MotionEvent): Boolean = e.getChild(DOUBLE_TAP)
 
     override fun onLongPress(e: MotionEvent) { e.getChild(LONG_PRESS) }
 

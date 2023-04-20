@@ -86,6 +86,13 @@
             app:popEnterAnim="@anim/anim_fade_in"
             app:popExitAnim="@anim/anim_fade_out"
             app:destination="@id/borcDurum" />
+        <action
+            android:id="@+id/action_profileFragment_to_pdfViewer"
+            app:enterAnim="@anim/anim_fade_in"
+            app:exitAnim="@anim/anim_fade_out"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_fade_out"
+            app:destination="@id/pdfViewer" />
 
     </fragment>
     <fragment
@@ -125,6 +132,11 @@
         android:id="@+id/borcDurum"
         android:name="com.ktknahmet.final_project.ui.paymentStatus.BorcDurum"
         android:label="fragment_borc_durum"
-        tools:layout="@layout/fragment_borc_durum" />
+      />
+    <fragment
+        android:id="@+id/pdfViewer"
+        android:name="com.ktknahmet.final_project.ui.pdf.PdfViewer"
+        android:label="fragment_pdf_viewer"
+       />
 
 </navigation>

@@ -176,23 +176,6 @@ abstract class BaseMyDialog<VB : ViewBinding> : RoundedBottomSheetDialogFragment
                 lp.gravity = gravity
             }
 
-           /* when (width) {
-                0 -> {
-                    lp.width = getScreenWidth(mHostContext) - 2 * dp2px(mHostContext, margin.toFloat())
-                }
-                -1 -> {
-                    lp.width = WindowManager.LayoutParams.WRAP_CONTENT
-                }
-                else -> {
-                    lp.width = dp2px(mHostContext, width.toFloat())
-                }
-            }
-
-            if (height == 0) {
-                lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-            } else {
-                lp.height = dp2px(mHostContext, height.toFloat())
-            }*/
             width = WindowManager.LayoutParams.MATCH_PARENT
             height = WindowManager.LayoutParams.WRAP_CONTENT
 
