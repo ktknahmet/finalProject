@@ -50,6 +50,39 @@
         app:trackCornerRadius="20dp" />
 
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/detay"
+        style="@style/myCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/linearLayoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilarkadas"
+                style="@style/textInputLayoutStyleDrop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textInputHeight"
+                android:layout_marginTop="4dp"
+                android:hint="@string/arkadas_sec"
+                app:endIconTint="?thText">
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinnerArkadas"
+                    style="@style/r14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
@@ -58,14 +91,5 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:visibility="visible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/iv_empty_state_not_found" />
 
 </LinearLayout>

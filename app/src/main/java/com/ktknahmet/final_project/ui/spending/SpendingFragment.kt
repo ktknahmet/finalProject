@@ -6,7 +6,9 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.crazylegend.kotlinextensions.views.gone
 import com.crazylegend.kotlinextensions.views.onClick
+import com.crazylegend.kotlinextensions.views.visible
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.ktknahmet.final_project.R
@@ -28,10 +30,12 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
     private lateinit var pref: MainSharedPreferences
     private lateinit var mAdapter: AddPaymentAdapter
     private var faturaTip = ""
+    private var email=""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         pref = MainSharedPreferences(requireContext(), MyPref.bilgiler)
+        email = pref.getString(MyPref.email, "").toString()
         allList = ArrayList()
         faturalar()
 
@@ -68,8 +72,7 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
     }
 
     private fun allData(faturatip: String) {
-
-        val email = pref.getString(MyPref.email, "").toString()
+        binding.pgBar.visible()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val query = db.collection("odemeler").whereEqualTo("FATURATIP", faturatip)
             .whereEqualTo("EMAIL",email).orderBy("TARIH",Query.Direction.ASCENDING).get()
@@ -94,9 +97,10 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
                }
                toastError(str(R.string.veri_yok))
            }
-
+            binding.pgBar.gone()
         }.addOnFailureListener {
             toastError(it.message.toString())
+            binding.pgBar.gone()
         }
     }
 
