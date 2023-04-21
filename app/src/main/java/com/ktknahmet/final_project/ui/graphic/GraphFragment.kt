@@ -1,7 +1,6 @@
 package com.ktknahmet.final_project.ui.graphic
 
 
-import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Bundle
@@ -29,12 +28,12 @@ import com.ktknahmet.final_project.utils.Constant.HEPSI
 import com.ktknahmet.final_project.utils.Constant.ODENDI
 import com.ktknahmet.final_project.utils.Constant.ODENECEK
 import com.ktknahmet.final_project.utils.Constant.TAKSITLIODEME
+import com.ktknahmet.final_project.utils.Constant.TLICON
 import com.ktknahmet.final_project.utils.Constant.sdf2
 import com.ktknahmet.final_project.utils.Errors
 import com.ktknahmet.final_project.utils.MainSharedPreferences
 import com.ktknahmet.final_project.utils.generalUtils.str
 import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -51,6 +50,7 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
     private lateinit var allListOdeme: ArrayList<AddPayment>
     private lateinit var arkadasOdeme:ArrayList<AddFriendPayment>
     private var odemeTip = ""
+    private val longDate= sdf2.parse(selectDateTime)!!.time
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -71,9 +71,13 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 binding.tilarkadas.error = Errors.BosGecilemez
             }else{
                 if(arkadas=="Hiçbiri"){
-                    odemeTipData(odemeTip)
+                    allListOdeme.clear()
+                    arkadasOdeme.clear()
+                    odemeTipData()
                 }else{
-                    arkadasData(arkadas)
+                    allListOdeme.clear()
+                    arkadasOdeme.clear()
+                    arkadasData()
                 }
             }
         }
@@ -154,15 +158,16 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
 
             }
     }
-    private fun odemeTipData(odemetip: String) {
-        val longDate= sdf2.parse(selectDateTime)!!.time
+    private fun odemeTipData() {
+        binding.pgBar.visible()
+
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        val query = if(odemetip==HEPSI){
+        val query = if(odemeTip==HEPSI){
             db.collection("odemeler").whereEqualTo("EMAIL",email)
-                .whereGreaterThanOrEqualTo("ODEMETARIH",longDate).get()
+                .whereLessThanOrEqualTo("ODEMETARIH",longDate).get()
         }else{
             db.collection("odemeler").whereEqualTo("EMAIL",email)
-                .whereEqualTo("ODEMETIP", odemetip).whereGreaterThanOrEqualTo("ODEMETARIH",longDate)
+                .whereEqualTo("ODEMETIP", odemeTip).whereLessThanOrEqualTo("ODEMETARIH",longDate)
                 .get()
         }
         query.addOnSuccessListener {
@@ -177,17 +182,27 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 allListOdeme.clear()
                 toastError("$selectDateTime tarihinden sonra hiçbir ödeme girilmemiştir")
             }
+            binding.pgBar.gone()
         }.addOnFailureListener {
             toastError(it.message.toString())
+            binding.pgBar.gone()
         }
     }
 
-    private fun arkadasData(arkadas: String) {
-        val longDate= sdf2.parse(selectDateTime)!!.time
+    private fun arkadasData() {
+        binding.pgBar.visible()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        val query =  db.collection("arkadasOdeme").whereEqualTo("EMAIL",email)
-            .whereEqualTo("ARKADAS", arkadas).whereGreaterThanOrEqualTo("ODEMETARIH",longDate)
-            .get()
+
+        val query = if(odemeTip==HEPSI){
+            db.collection("arkadasOdeme").whereEqualTo("EMAIL",email)
+                .whereEqualTo("ARKADAS", arkadas).whereLessThanOrEqualTo("ODEMETARIH",longDate)
+                .get()
+        }else{
+            db.collection("arkadasOdeme").whereEqualTo("ODEMETIP", odemeTip).whereEqualTo("EMAIL",email)
+                .whereEqualTo("ARKADAS", arkadas).whereLessThanOrEqualTo("ODEMETARIH",longDate)
+                .get()
+        }
+
         query.addOnSuccessListener {
             if(!it.isEmpty){
                 for(data in it.documents){
@@ -200,8 +215,10 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 arkadasOdeme.clear()
                 toastError("$selectDateTime tarihinden sonra hiçbir ödeme girilmemiştir")
             }
+            binding.pgBar.gone()
         }.addOnFailureListener {
             toastError(it.message.toString())
+            binding.pgBar.gone()
         }
     }
     private fun graph(value:Int){
@@ -215,54 +232,33 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         if(value==1){
             for(i in allListOdeme.indices){
                 when (allListOdeme[i].ODEMETIP) {
-                    ODENDI -> {
-                        odendiMiktar +=allListOdeme[i].BUTCE!!
-                        list.add(PieEntry(odendiMiktar.toFloat(), ODENDI))
-                    }
-                    ODENECEK -> {
-                        odenecekMiktar +=allListOdeme[i].BUTCE!!
-                        list.add(PieEntry(odenecekMiktar.toFloat(), ODENECEK))
-                    }
-                    TAKSITLIODEME -> {
-                        taksitliMiktar +=allListOdeme[i].BUTCE!!
-                        list.add(PieEntry(taksitliMiktar.toFloat(), TAKSITLIODEME))
-                    }
-                    BORC -> {
-                        borcMiktar +=allListOdeme[i].BUTCE!!
-                        list.add(PieEntry(borcMiktar.toFloat(), BORC))
-                    }
-                    ALACAK -> {
-                        alacakMiktar +=allListOdeme[i].BUTCE!!
-                        list.add(PieEntry(alacakMiktar.toFloat(), ALACAK))
-                    }
+                    ODENDI -> { odendiMiktar +=allListOdeme[i].BUTCE!! }
+                    ODENECEK -> { odenecekMiktar +=allListOdeme[i].BUTCE!! }
+                    TAKSITLIODEME -> { taksitliMiktar +=allListOdeme[i].BUTCE!! }
+                    BORC -> { borcMiktar +=allListOdeme[i].BUTCE!! }
+                    ALACAK -> { alacakMiktar +=allListOdeme[i].BUTCE!! }
                 }
             }
         }else{
             for(i in arkadasOdeme.indices){
                 when (arkadasOdeme[i].ODEMETIP) {
-                    ODENDI -> {
-                        odendiMiktar +=arkadasOdeme[i].BUTCE!!
-                        list.add(PieEntry(odendiMiktar.toFloat(), ODENDI))
-                    }
-                    ODENECEK -> {
-                        odenecekMiktar +=arkadasOdeme[i].BUTCE!!
-                        list.add(PieEntry(odenecekMiktar.toFloat(), ODENECEK))
-                    }
-                    TAKSITLIODEME -> {
-                        taksitliMiktar +=arkadasOdeme[i].BUTCE!!
-                        list.add(PieEntry(taksitliMiktar.toFloat(), TAKSITLIODEME))
-                    }
-                    BORC -> {
-                        borcMiktar +=arkadasOdeme[i].BUTCE!!
-                        list.add(PieEntry(borcMiktar.toFloat(), BORC))
-                    }
-                    ALACAK -> {
-                        alacakMiktar +=arkadasOdeme[i].BUTCE!!
-                        list.add(PieEntry(alacakMiktar.toFloat(), ALACAK))
-                    }
+                    ODENDI -> { odendiMiktar +=arkadasOdeme[i].BUTCE!! }
+                    ODENECEK -> { odenecekMiktar +=arkadasOdeme[i].BUTCE!! }
+                    TAKSITLIODEME -> { taksitliMiktar +=arkadasOdeme[i].BUTCE!! }
+                    BORC -> { borcMiktar +=arkadasOdeme[i].BUTCE!! }
+                    ALACAK -> { alacakMiktar +=arkadasOdeme[i].BUTCE!! }
                 }
             }
         }
+        println("ödendi miktar :$odendiMiktar")
+        if(value==1){ binding.chartView.centerText = "Arkdaş Seçilmedi" }
+        else{ binding.chartView.centerText = arkadas }
+        if(odendiMiktar>0){ list.add(PieEntry(odendiMiktar.toFloat(),"$TLICON $ODENDI")) }
+        if(odenecekMiktar>0){ list.add(PieEntry(odenecekMiktar.toFloat(),"$TLICON $ODENECEK")) }
+        if(taksitliMiktar>0){ list.add(PieEntry(taksitliMiktar.toFloat(), "$TLICON $TAKSITLIODEME")) }
+        if(borcMiktar>0){ list.add(PieEntry(borcMiktar.toFloat(), "$TLICON $BORC")) }
+        if(alacakMiktar>0){ list.add(PieEntry(alacakMiktar.toFloat(), "$TLICON $ALACAK")) }
+
         val pieDataSet = PieDataSet(list,"")
         pieDataSet.setColors(Constant.LISTCOLOR,255)
         pieDataSet.valueTextColor = Color.BLACK
@@ -270,12 +266,6 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         binding.chartView.setEntryLabelColor(Color.BLACK)
         val barData = PieData(pieDataSet)
         binding.chartView.data = barData
-
-        if(value==1){
-            binding.chartView.centerText = "Arkdaş Seçilmedi"
-        }else{
-            binding.chartView.centerText = arkadas
-        }
 
         binding.chartView.description.text = "$selectDateTime -- ${sdf2.format(dateNow)}"
         binding.chartView.animateXY(1500,1500)

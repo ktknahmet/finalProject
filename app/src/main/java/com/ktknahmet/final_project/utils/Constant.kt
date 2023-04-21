@@ -15,7 +15,7 @@ object Constant {
     const val SINGLE_TAP_UP = 1203
     const val DOUBLE_TAP = 1204
     const val LONG_PRESS = 1205
-    const val ODENDI = "Ödendi"
+    const val ODENDI = "Nakit"
     const val ODENECEK ="Ödenecek"
     const val TAKSITLIODEME="Taksitli Ödeme"
     const val BORC = "Borç"
@@ -29,9 +29,6 @@ object Constant {
     const val USDICON = "\u0024"
     const val POUNDICON ="\u00a3"
 
-    const val CHANNEL_ID = "channelID"
-    const val CHANNEL_NAME = "channelName"
-    const val NOTIF_ID = 0
     val BORCTIP = arrayOf("Elektrik Faturası",
         "Su Faturası",
         "Doğalgaz",
