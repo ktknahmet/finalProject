@@ -66,11 +66,10 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         odemeTipi()
 
         binding.imgShow.onClick {
-            if(binding.spinnerOdeme.isEmpty() || binding.spinnerArkadas.isEmpty()){
+            if(binding.spinnerOdeme.isEmpty()){
                 binding.tilodemeTip.error = Errors.BosGecilemez
-                binding.tilarkadas.error = Errors.BosGecilemez
             }else{
-                if(arkadas=="Hiçbiri"){
+                if(arkadas=="Hiçbiri" || arkadas.isEmpty()){
                     allListOdeme.clear()
                     arkadasOdeme.clear()
                     odemeTipData()
@@ -180,7 +179,7 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 graph(1)
             }else{
                 allListOdeme.clear()
-                toastError("$selectDateTime tarihinden sonra hiçbir ödeme girilmemiştir")
+                toastInfo("$selectDateTime tarihinden sonra $odemeTip girilmemiştir")
             }
             binding.pgBar.gone()
         }.addOnFailureListener {
@@ -213,7 +212,7 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 graph(2)
             }else{
                 arkadasOdeme.clear()
-                toastError("$selectDateTime tarihinden sonra hiçbir ödeme girilmemiştir")
+                toastInfo("$selectDateTime tarihinden sonra $odemeTip girilmemiştir")
             }
             binding.pgBar.gone()
         }.addOnFailureListener {
