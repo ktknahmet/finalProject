@@ -37,7 +37,7 @@ class AddFriendPaymentAdapter (private val alldata:List<AddFriendPayment>): Recy
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onBindViewHolder(holder: DetailsHolder, position: Int) {
         val dateNow = Date()
-        val sdf2 = SimpleDateFormat("dd/MM/yyyy")
+        val sdf2 = SimpleDateFormat("dd.MM.yyyy")
 
         val selectDateTime = sdf2.format(dateNow)
         val date = sdf2.parse(selectDateTime)
@@ -46,7 +46,7 @@ class AddFriendPaymentAdapter (private val alldata:List<AddFriendPayment>): Recy
 
         with(holder) {
             val p: AddFriendPayment = list[position]
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+            val dateFormat = SimpleDateFormat("dd.MM.yyyy")
             val dateShow = Date(p.TARIH!!)
 
 

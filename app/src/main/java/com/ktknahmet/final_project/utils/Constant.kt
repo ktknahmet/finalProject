@@ -1,8 +1,10 @@
 package com.ktknahmet.final_project.utils
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import com.ktknahmet.final_project.R
 import com.ktknahmet.final_project.model.ProfileDetails
+import java.text.SimpleDateFormat
 
 
 object Constant {
@@ -19,6 +21,8 @@ object Constant {
     const val BORC = "Borç"
     const val ALACAK ="Alacak"
     const val HEPSI ="Hepsi"
+    @SuppressLint("SimpleDateFormat")
+    val sdf2 = SimpleDateFormat("dd.MM.yyyy")
 
     const val TLICON = "\u20BA"
     const val EURICON = "\u20AC"

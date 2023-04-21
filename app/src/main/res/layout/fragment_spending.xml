@@ -104,27 +104,4 @@
         android:layout_marginEnd="@dimen/mr8"
         />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/iv_empty_state_not_found" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/titleTextView"
-        style="@style/h16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="@dimen/mr"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="@dimen/mr"
-        android:text="@string/not_found"
-        android:textColor="?thTextSub"
-        android:textAlignment="center" />
-
 </LinearLayout>

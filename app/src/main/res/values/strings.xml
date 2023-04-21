@@ -58,6 +58,7 @@
     <string name="butce">Bütçe Giriniz</string>
     <string name="butcem">Bütçe</string>
     <string name="grafikler">Grafik</string>
+    <string name="olustur">Oluştur</string>
     <string name="pdf_olustur">Pdflerim</string>
     <string name="pdf_olusturmak_istermisiniz">Pdf oluşturmak istiyor musunuz?</string>
     <string name="harcama_bulunamadı">Harcama Bulunamadı</string>

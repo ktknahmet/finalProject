@@ -29,6 +29,7 @@ import com.ktknahmet.final_project.utils.Constant.HEPSI
 import com.ktknahmet.final_project.utils.Constant.ODENDI
 import com.ktknahmet.final_project.utils.Constant.ODENECEK
 import com.ktknahmet.final_project.utils.Constant.TAKSITLIODEME
+import com.ktknahmet.final_project.utils.Constant.sdf2
 import com.ktknahmet.final_project.utils.Errors
 import com.ktknahmet.final_project.utils.MainSharedPreferences
 import com.ktknahmet.final_project.utils.generalUtils.str
@@ -39,8 +40,7 @@ import kotlin.collections.ArrayList
 
 
 class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::inflate)  {
-    @SuppressLint("SimpleDateFormat")
-    private val sdf2 = SimpleDateFormat("dd.MM.yyyy")
+
     private var dateNow = Date()
     private var arkadas=""
     private var email = ""
@@ -204,10 +204,8 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
             toastError(it.message.toString())
         }
     }
-
-
     private fun graph(value:Int){
-       val list :ArrayList<PieEntry> = ArrayList()
+        val list :ArrayList<PieEntry> = ArrayList()
         var odendiMiktar =0.0
         var odenecekMiktar=0.0
         var taksitliMiktar=0.0
@@ -265,7 +263,6 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
                 }
             }
         }
-
         val pieDataSet = PieDataSet(list,"")
         pieDataSet.setColors(Constant.LISTCOLOR,255)
         pieDataSet.valueTextColor = Color.BLACK
@@ -279,8 +276,9 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         }else{
             binding.chartView.centerText = arkadas
         }
+
         binding.chartView.description.text = "$selectDateTime -- ${sdf2.format(dateNow)}"
-        binding.chartView.animateY(2000)
+        binding.chartView.animateXY(1500,1500)
         binding.chartView.visible()
     }
 }

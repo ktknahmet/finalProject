@@ -27,7 +27,7 @@ class MainHomeActivity : BaseActivity() {
         pref = MainSharedPreferences(this, MyPref.bilgiler)
         myTheme = pref.getInt(MyPref.theme, LIGHT)
         setUI(myTheme, this)
-     
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment?
         val navController = navHostFragment!!.navController

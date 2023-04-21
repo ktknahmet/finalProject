@@ -2,14 +2,11 @@ package com.ktknahmet.final_project.ui.spending
 
 
 import android.os.Bundle
-import android.os.Environment
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.crazylegend.kotlinextensions.views.gone
 import com.crazylegend.kotlinextensions.views.onClick
-import com.crazylegend.kotlinextensions.views.visible
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.ktknahmet.final_project.R
@@ -19,13 +16,10 @@ import com.ktknahmet.final_project.model.AddPayment
 import com.ktknahmet.final_project.ui.base.BaseFragment
 import com.ktknahmet.final_project.utils.Constant.BORCTIP
 import com.ktknahmet.final_project.utils.MainSharedPreferences
+import com.ktknahmet.final_project.utils.createPdf
 import com.ktknahmet.final_project.utils.generalUtils.str
-import com.ktknahmet.final_project.utils.navigate
 import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
 import com.ktknahmet.final_project.utils.showConfirmDialog
-import java.io.FileOutputStream
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingBinding::inflate) {
@@ -37,19 +31,23 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        pref = MainSharedPreferences(requireContext(), MyPref.bilgiler)
         allList = ArrayList()
         faturalar()
 
         binding.imgPdf.onClick {
-            showConfirmDialog(
-                title = str(R.string.pdf_olusturmak_istermisiniz),
-                confirm = {
-
-                },
-                buttonPositiveText = str(R.string.kaydet),
-                buttonNegativeText = str(R.string.hayir),
-            )
+            if(allList.isEmpty()){
+                toastError("Kaydedilecek Fatura Bulunamadı")
+            }else{
+                showConfirmDialog(
+                    title = str(R.string.pdf_olusturmak_istermisiniz),
+                    confirm = {
+                        createPdf(allList,requireContext())
+                    },
+                    buttonPositiveText = str(R.string.olustur),
+                    buttonNegativeText = str(R.string.hayir),
+                )
+            }
         }
     }
 
@@ -69,38 +67,38 @@ class SpendingFragment : BaseFragment<FragmentSpendingBinding>(FragmentSpendingB
             }
     }
 
-
     private fun allData(faturatip: String) {
-        pref = MainSharedPreferences(requireContext(), MyPref.bilgiler)
+
         val email = pref.getString(MyPref.email, "").toString()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        val query =db.collection("odemeler").whereEqualTo("FATURATIP", faturatip)
+        val query = db.collection("odemeler").whereEqualTo("FATURATIP", faturatip)
             .whereEqualTo("EMAIL",email).orderBy("TARIH",Query.Direction.ASCENDING).get()
+
         query.addOnSuccessListener {
            if(!it.isEmpty){
                for(data in it.documents){
                    val user = data.toObject(AddPayment::class.java)
                    allList.add(user!!)
                }
-               binding.recyclerview.visible()
-               binding.imageView.gone()
-               binding.titleTextView.gone()
                mAdapter = AddPaymentAdapter(allList)
                binding.recyclerview.apply {
                    layoutManager = LinearLayoutManager(requireContext())
                    this.adapter = mAdapter
                }
            }else{
-               binding.recyclerview.gone()
-               binding.imageView.visible()
-               binding.titleTextView.visible()
+               allList.clear()
+               mAdapter = AddPaymentAdapter(allList)
+               binding.recyclerview.apply {
+                   layoutManager = LinearLayoutManager(requireContext())
+                   this.adapter = mAdapter
+               }
                toastError(str(R.string.veri_yok))
            }
 
         }.addOnFailureListener {
             toastError(it.message.toString())
         }
-        allList = ArrayList()
     }
+
 
 }

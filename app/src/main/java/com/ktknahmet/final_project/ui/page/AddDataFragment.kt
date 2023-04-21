@@ -26,6 +26,7 @@ import com.ktknahmet.final_project.databinding.FragmentAddDataBinding
 import com.ktknahmet.final_project.model.Borclar
 import com.ktknahmet.final_project.ui.base.BaseFragment
 import com.ktknahmet.final_project.utils.Constant.BORCTIP
+import com.ktknahmet.final_project.utils.Constant.sdf2
 import com.ktknahmet.final_project.utils.Errors
 import com.ktknahmet.final_project.utils.MainSharedPreferences
 import com.ktknahmet.final_project.utils.appCtx
@@ -46,7 +47,7 @@ class AddDataFragment : BaseFragment<FragmentAddDataBinding>(FragmentAddDataBind
     private lateinit var mAdapter: BorcAdapter
     private var faturaTip=""
     @SuppressLint("SimpleDateFormat")
-    private var selectDateTime: String = SimpleDateFormat("dd-MM-yyyy").format(Date())
+    private var selectDateTime: String = sdf2.format(Date())
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -66,7 +67,7 @@ class AddDataFragment : BaseFragment<FragmentAddDataBinding>(FragmentAddDataBind
                 R.style.MaterialCalendarCustomStyle,
                 { _, y, m, d ->
                     val ay = m + 1
-                    selectDateTime = ("$d-$ay-$y")
+                    selectDateTime = ("$d.$ay.$y")
                     binding.selectDate.setText(selectDateTime)
                 },
                 year,

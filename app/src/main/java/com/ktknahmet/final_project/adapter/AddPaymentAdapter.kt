@@ -41,7 +41,7 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     override fun onBindViewHolder(holder: DetailsHolder, position: Int) {
         val dateNow = Date()
-        val sdf2 = SimpleDateFormat("dd/MM/yyyy")
+        val sdf2 = SimpleDateFormat("dd.MM.yyyy")
 
         val selectDateTime = sdf2.format(dateNow)
         val date = sdf2.parse(selectDateTime)
@@ -50,7 +50,7 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
 
         with(holder) {
             val p: AddPayment = list[position]
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+            val dateFormat = SimpleDateFormat("dd.MM.yyyy")
             val dateShow = Date(p.TARIH!!)
 
 

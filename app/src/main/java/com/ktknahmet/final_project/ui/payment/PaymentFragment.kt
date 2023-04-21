@@ -23,6 +23,7 @@ import com.ktknahmet.final_project.ui.base.BaseFragment
 import com.ktknahmet.final_project.utils.*
 import com.ktknahmet.final_project.utils.Constant.ODENECEK
 import com.ktknahmet.final_project.utils.Constant.TAKSITLIODEME
+import com.ktknahmet.final_project.utils.Constant.sdf2
 import com.ktknahmet.final_project.utils.generalUtils.str
 import com.ktknahmet.final_project.utils.niceDialog.BaseMyDialog
 import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
@@ -39,9 +40,6 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
     private var miktar = 0.0
     private lateinit var allList: ArrayList<AddPayment>
     private var dateNow = Date()
-
-    @SuppressLint("SimpleDateFormat")
-    private val sdf2 = SimpleDateFormat("dd-MM-yyyy")
     var selectDateTime = sdf2.format(dateNow)
     var odemeDate = sdf2.format(dateNow)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,7 +60,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
                 R.style.MaterialCalendarCustomStyle,
                 { _, y, m, d ->
                     val ay = m + 1
-                    selectDateTime = ("$d-$ay-$y")
+                    selectDateTime = ("$d.$ay.$y")
                     binding.selectDate.setText(selectDateTime)
                 },
                 year,
@@ -147,7 +145,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
                         R.style.MaterialCalendarCustomStyle,
                         { _, y, m, d ->
                             val ay = m + 1
-                            odemeDate = ("$d-$ay-$y")
+                            odemeDate = ("$d.$ay.$y")
                             vb.selectTarih.setText(odemeDate)
                         },
                         year,

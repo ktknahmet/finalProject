@@ -27,6 +27,7 @@ import com.ktknahmet.final_project.model.AddPayment
 import com.ktknahmet.final_project.model.Contact
 import com.ktknahmet.final_project.ui.base.BaseFragment
 import com.ktknahmet.final_project.utils.Constant
+import com.ktknahmet.final_project.utils.Constant.sdf2
 import com.ktknahmet.final_project.utils.Errors
 import com.ktknahmet.final_project.utils.MainSharedPreferences
 import com.ktknahmet.final_project.utils.generalUtils.str
@@ -50,8 +51,6 @@ class BorcDurum : BaseFragment<FragmentBorcDurumBinding>(FragmentBorcDurumBindin
     private var dateNow = Date()
     private lateinit var  pref : MainSharedPreferences
     private var email = ""
-    @SuppressLint("SimpleDateFormat")
-    private val sdf2 = SimpleDateFormat("dd-MM-yyyy")
     var selectDateTime = sdf2.format(dateNow)
     var odemeDate = sdf2.format(dateNow)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -96,7 +95,7 @@ class BorcDurum : BaseFragment<FragmentBorcDurumBinding>(FragmentBorcDurumBindin
     }
     private fun allFriends(){
         listFriends = ArrayList()
-        var contactList= ArrayList<Contact>()
+        val contactList= ArrayList<Contact>()
         var listGrup=""
         val gson = Gson()
 

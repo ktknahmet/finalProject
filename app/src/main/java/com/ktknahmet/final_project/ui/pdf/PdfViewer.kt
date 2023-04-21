@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class PdfViewer :  BaseFragment<FragmentPdfViewerBinding>(FragmentPdfViewerBinding::inflate){
+class PdfViewer:BaseFragment<FragmentPdfViewerBinding>(FragmentPdfViewerBinding::inflate){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
