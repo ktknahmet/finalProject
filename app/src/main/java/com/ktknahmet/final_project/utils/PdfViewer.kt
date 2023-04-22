@@ -8,7 +8,6 @@ import com.itextpdf.text.*
 import com.itextpdf.text.pdf.PdfPCell
 import com.itextpdf.text.pdf.PdfPTable
 import com.itextpdf.text.pdf.PdfWriter
-import com.ktknahmet.final_project.R
 import com.ktknahmet.final_project.model.AddPayment
 import com.ktknahmet.final_project.utils.Constant.ALACAK
 import com.ktknahmet.final_project.utils.Constant.BORC
@@ -22,30 +21,25 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+
 fun createPdf(list: ArrayList<AddPayment>, context: Context) {
     val mDoc = Document()
     val mFileName =
         SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault()).format(System.currentTimeMillis())
-    val mPdfPath = Environment.getExternalStorageDirectory().toString() + "/" + mFileName + ".pdf"
+    val mPdfPath = Environment.getExternalStorageDirectory().toString() + "/" + list[0].EMAIL+ mFileName + ".pdf"
     try {
         PdfWriter.getInstance(mDoc, FileOutputStream(mPdfPath))
         mDoc.open()
 
-
-
-        mDoc.setMargins(10f, 10f, 10f, 10f)
-
-
-        val width = floatArrayOf(200f, 200f)
-        val widthHeader = floatArrayOf(400f, 400f)
-        val tableHeader = PdfPTable(widthHeader)
+        //pdfin genişliğini ayarlar
+        val width = floatArrayOf(300f,300f)
         val table = PdfPTable(width)
         table.horizontalAlignment = CENTER_HORIZONTAL
-        tableHeader.horizontalAlignment = CENTER_HORIZONTAL
+
 
         val cell0 =PdfPCell(Phrase(""))
-        cell0.minimumHeight = 5f
         cell0.borderColor = BaseColor.WHITE
+        cell0.minimumHeight = 5f
         var cell1: PdfPCell
         var cell2: PdfPCell
         var cell3: PdfPCell
@@ -58,30 +52,14 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
 
         for (i in list.indices) {
             when (list[i].ODEMETIP) {
-                ODENDI -> {
-                    cell0.backgroundColor = BaseColor.GREEN
-                    tableHeader.addCell(cell0)
-                }
-                ODENECEK -> {
-                    cell0.backgroundColor = BaseColor.ORANGE
-                    tableHeader.addCell(cell0)
-                }
-                TAKSITLIODEME -> {
-                    cell0.backgroundColor = BaseColor.GRAY
-                    tableHeader.addCell(cell0)
-                }
-                BORC -> {
-                    cell0.backgroundColor = BaseColor.RED
-                    tableHeader.addCell(cell0)
-                }
-                ALACAK -> {
-                    cell0.backgroundColor = BaseColor.BLUE
-                    tableHeader.addCell(cell0)
-                }
-
+                ODENDI -> { cell0.backgroundColor = BaseColor.GREEN }
+                ODENECEK -> { cell0.backgroundColor = BaseColor.ORANGE }
+                TAKSITLIODEME -> { cell0.backgroundColor = BaseColor.GRAY }
+                BORC -> { cell0.backgroundColor = BaseColor.RED }
+                ALACAK -> { cell0.backgroundColor = BaseColor.BLUE }
             }
 
-            cell1 = PdfPCell(Phrase("TARİH"))
+            cell1 = PdfPCell(Phrase("Tarih"))
             cell1.borderColor = BaseColor.WHITE
             table.addCell(cell1)
 
@@ -90,7 +68,7 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
             cell2.borderColor = BaseColor.WHITE
             table.addCell(cell2)
 
-            cell3 = PdfPCell(Phrase("FATURATIP"))
+            cell3 = PdfPCell(Phrase("Fatura Tipi"))
             cell3.borderColor = BaseColor.WHITE
             table.addCell(cell3)
 
@@ -98,7 +76,7 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
             cell4.borderColor = BaseColor.WHITE
             table.addCell(cell4)
 
-            cell5 = PdfPCell(Phrase("ÖDEME TİP"))
+            cell5 = PdfPCell(Phrase("Ödeme Tipi"))
             cell5.borderColor = BaseColor.WHITE
             table.addCell(cell5)
 
@@ -106,20 +84,22 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
             cell6.borderColor = BaseColor.WHITE
             table.addCell(cell6)
 
-            cell7 = PdfPCell(Phrase("BÜTÇE"))
+            cell7 = PdfPCell(Phrase("Bütce"))
             cell7.borderColor = BaseColor.WHITE
             cell7.fixedHeight = 50f
             table.addCell(cell7)
 
             cell8 = PdfPCell(Phrase("${list[i].BUTCE} $TLICON"))
             cell8.borderColor = BaseColor.WHITE
-            cell8.fixedHeight = 50f
+            cell8.fixedHeight = 30f
             table.addCell(cell8)
 
 
         }
-        mDoc.add(tableHeader)
+
         mDoc.add(table)
+
+
         mDoc.close()
         ToastMessage.createColorToast(
             context as Activity,
@@ -139,5 +119,7 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
             ToastMessage.LONG_DURATION
         )
     }
+
 }
+
 

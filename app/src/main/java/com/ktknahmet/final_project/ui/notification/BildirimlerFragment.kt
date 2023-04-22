@@ -1,17 +1,10 @@
 package com.ktknahmet.final_project.ui.notification
 
-import android.annotation.SuppressLint
-import android.app.*
-import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.os.Build
-import android.os.Bundle
 
+import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.crazylegend.kotlinextensions.views.gone
 import com.crazylegend.kotlinextensions.views.visible
@@ -27,11 +20,10 @@ import com.ktknahmet.final_project.databinding.FragmentBildirimlerBinding
 import com.ktknahmet.final_project.model.AddFriendPayment
 import com.ktknahmet.final_project.model.AddPayment
 import com.ktknahmet.final_project.model.Contact
-import com.ktknahmet.final_project.utils.Constant
 import com.ktknahmet.final_project.utils.Constant.ODENECEK
 import com.ktknahmet.final_project.utils.MainSharedPreferences
-import com.ktknahmet.final_project.utils.generalUtils.str
 import com.ktknahmet.final_project.utils.sharedPreferences.MyPref
+import kotlinx.coroutines.*
 
 
 class BildirimlerFragment : BaseFragment<FragmentBildirimlerBinding>(FragmentBildirimlerBinding::inflate)  {
@@ -97,7 +89,11 @@ class BildirimlerFragment : BaseFragment<FragmentBildirimlerBinding>(FragmentBil
                         }
                     }
             }else{
-                toastError(str(R.string.arkadas_bos))
+                toastInfo("Arkdaşlarınız arasındaki durumu görmek için arkadaş ekleyiniz")
+                CoroutineScope(Dispatchers.Main).launch {
+                    delay(3000)
+                    allData()
+                }
             }
             binding.pgBar.gone()
 
@@ -126,7 +122,7 @@ class BildirimlerFragment : BaseFragment<FragmentBildirimlerBinding>(FragmentBil
                     this.adapter = mAdapter
                 }
             }else{
-                toastError("Ödenecek tutar bulunmamaktadır")
+                toastInfo("Ödenecek fatura bilgisi bulunmamaktadır")
             }
             binding.pgBar.gone()
 

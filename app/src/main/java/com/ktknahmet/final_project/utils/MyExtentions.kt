@@ -3,6 +3,7 @@ package com.ktknahmet.final_project.utils
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
@@ -16,9 +17,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.crazylegend.kotlinextensions.bitmap.decodeBitmap
 import com.ktknahmet.final_project.utils.niceDialog.MyDialog
 import com.ktknahmet.final_project.utils.niceDialog.ViewConvertListener
 import com.crazylegend.kotlinextensions.isNull
+import com.crazylegend.kotlinextensions.string.base64Decode
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.ktknahmet.final_project.R
@@ -107,6 +110,11 @@ fun convertLongToTime(time: Long): String {
     return format.format(date)
 }
 
+fun decodeBase64BitmapScaled(value:String): Bitmap {
+    val byteArray: ByteArray = value.base64Decode()
+    val bitmap: Bitmap = byteArray.decodeBitmap(0, byteArray.size)!!
+    return Bitmap.createScaledBitmap(bitmap, bitmap.width, bitmap.height, false)
+}
 
 fun saveImage(imageUri: Uri?,context:Context,name:String){
     val pref = MainSharedPreferences(context, MyPref.bilgiler)
