@@ -52,7 +52,6 @@ object Constant {
         BORC,
         ALACAK
     )
-
     val LISTCOLOR = intArrayOf(
         Color.rgb(32, 161, 218),
         Color.rgb(217, 125, 33),
@@ -62,8 +61,6 @@ object Constant {
         Color.rgb(51, 87, 102),
         Color.rgb(217, 155, 33)
     )
-
-
     val PROFILE_TYPE = arrayOf(
         ProfileDetails(R.drawable.iv_tahsilat,"Harcamalarım"),
         ProfileDetails(R.drawable.iv_notification,"Yaklaşan Ödemelerim"),
@@ -72,6 +69,6 @@ object Constant {
         ProfileDetails(R.drawable.iv_pozisyon,"Arkadaşlarım"),
         ProfileDetails(R.drawable.iv_report,"Grafikler"),
         ProfileDetails(R.drawable.iv_pdf,"Pdflerim"),
-        ProfileDetails(R.drawable.ic_borc_durum,"Toplu Borç Durum")
+        ProfileDetails(R.drawable.ic_borc_durum,"Arkadaş Borç Durum")
     )
 }

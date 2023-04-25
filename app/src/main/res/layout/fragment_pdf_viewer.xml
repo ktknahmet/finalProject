@@ -7,6 +7,7 @@
     android:background="?thBack"
     android:orientation="vertical">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_size"
@@ -35,6 +36,18 @@
                     android:layout_toEndOf="@+id/toolbarImage"
                     android:text="@string/pdf" />
 
+                <ImageButton
+                    android:id="@+id/openPdf"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="21dp"
+                    android:layout_marginBottom="18dp"
+                    android:visibility="gone"
+                    android:background="@drawable/iv_open_pdf"
+                    tools:ignore="ContentDescription" />
 
             </RelativeLayout>
 

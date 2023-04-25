@@ -21,7 +21,7 @@ import kotlin.collections.ArrayList
 import kotlin.math.roundToLong
 
 class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Adapter<AddPaymentAdapter.DetailsHolder>() {
-    //recyclerview oluştururuz ve bize 3 tane method override etmemizi sağlar
+
     private var list: List<AddPayment> = ArrayList()
 
     init {
@@ -32,9 +32,8 @@ class AddPaymentAdapter (private val alldata:List<AddPayment>): RecyclerView.Ada
     class DetailsHolder(val binding: AddPaymentRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailsHolder {
-        val binding =
-            AddPaymentRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        //bağlama işlemi gösterilecek tasarımı recyclerview bağlama işlemi
+        val binding = AddPaymentRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return DetailsHolder(binding)
     }
 

@@ -57,7 +57,7 @@ class AddFriendsFragment : BaseFragment<FragmentAddFriendsBinding>(FragmentAddFr
             if(allList.isNotEmpty()){
                 showNameDialog()
             }else{
-                toastError(str(R.string.arkadas_bos))
+                toastError(str(R.string.arkadas_ekleyin))
             }
 
         }

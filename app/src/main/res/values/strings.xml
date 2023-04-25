@@ -15,7 +15,7 @@
     <string name="giris">GİRİŞ YAP</string>
     <string name="gmail">Gmail İle Giriş</string>
     <string name="kayit_ol">Kayıt Ol</string>
-    <string name="tarih">Tarih</string>
+    <string name="tarih">Ödeme Tarihi</string>
     <string name="evet">Evet</string>
     <string name="goster">Göster</string>
     <string name="veri_yok">Henüz İşlem Girmediniz</string>
@@ -67,9 +67,10 @@
     <string name="arkadas_ekle">Arkadaş Ekle</string>
     <string name="arkdas_eklendi">Arkdaş Grubu Oluşturuldu</string>
     <string name="arkadas_bos">Hiç Arkadaş Eklemediniz</string>
+    <string name="arkadas_ekleyin">Kaydetmek için arakdaş grubu eklemelisiniz.</string>
     <string name="bildirimTarihi">Bildirim Tarihi Giriniz</string>
-    <string name="son_odeme_tarihi">Son Ödeme Tarihi</string>
-    <string name="odeme_tarihi_buyuk_olmali">Ödeme Tarihi Ödenecek Tarihten Büyük Olmalı</string>
+    <string name="son_odeme_tarihi">Bildirim Tarihi</string>
+    <string name="odeme_tarihi_buyuk_olmali">Ödeme Tarihi Bildirim Tarihten Büyük Olmalı</string>
     <string name="arkadaslari_listele">Grup arkdaşlarını görüntülemek için listeye dokun </string>
     <string name="arkadas_var">Listede Aynı Kişi Bulunmaktadır.</string>
     <string name="iptal">İptal</string>

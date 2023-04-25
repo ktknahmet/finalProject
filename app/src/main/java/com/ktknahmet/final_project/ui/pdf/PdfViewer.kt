@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.crazylegend.kotlinextensions.views.onClick
+import com.crazylegend.kotlinextensions.views.visible
 import com.ktknahmet.final_project.databinding.FragmentPdfViewerBinding
 import com.ktknahmet.final_project.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,7 +16,12 @@ class PdfViewer:BaseFragment<FragmentPdfViewerBinding>(FragmentPdfViewerBinding:
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         openPdfFile()
+        binding.openPdf.onClick {
+            openPdfFile()
+        }
+
     }
     private fun openPdfFile(){
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -28,6 +35,9 @@ class PdfViewer:BaseFragment<FragmentPdfViewerBinding>(FragmentPdfViewerBinding:
             data?.data?.also { uri ->
                 binding.pdfView.fromUri(uri).load()
             }
+        }else{
+               toastWarning("Hiçbir PDF seçilmedi.Pdf açmak için ikona tıklayınız")
+               binding.openPdf.visible()
         }
     }
 

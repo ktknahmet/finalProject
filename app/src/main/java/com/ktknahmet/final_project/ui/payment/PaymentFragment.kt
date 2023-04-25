@@ -162,7 +162,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
 
                     if (vb.edtAmount.text.toString().isEmpty()) {
                         vb.edtAmount.error = Errors.BosGecilemez
-                    } else if (selectDate > odemeDatee) {
+                    } else if (selectDate < odemeDatee) {
                         toastError(str(R.string.odeme_tarihi_buyuk_olmali))
                     } else {
                         miktar = vb.edtAmount.text.toString().toDouble()

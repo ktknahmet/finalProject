@@ -93,8 +93,6 @@ fun createPdf(list: ArrayList<AddPayment>, context: Context) {
             cell8.borderColor = BaseColor.WHITE
             cell8.fixedHeight = 30f
             table.addCell(cell8)
-
-
         }
 
         mDoc.add(table)

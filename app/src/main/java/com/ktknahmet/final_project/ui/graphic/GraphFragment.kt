@@ -163,10 +163,10 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val query = if(odemeTip==HEPSI){
             db.collection("odemeler").whereEqualTo("EMAIL",email)
-                .whereLessThanOrEqualTo("ODEMETARIH",longDate).get()
+                .whereGreaterThanOrEqualTo("ODEMETARIH",longDate).get()
         }else{
             db.collection("odemeler").whereEqualTo("EMAIL",email)
-                .whereEqualTo("ODEMETIP", odemeTip).whereLessThanOrEqualTo("ODEMETARIH",longDate)
+                .whereEqualTo("ODEMETIP", odemeTip).whereGreaterThanOrEqualTo("ODEMETARIH",longDate)
                 .get()
         }
         query.addOnSuccessListener {
@@ -194,11 +194,11 @@ class GraphFragment : BaseFragment<FragmentGraphBinding>(FragmentGraphBinding::i
 
         val query = if(odemeTip==HEPSI){
             db.collection("arkadasOdeme").whereEqualTo("EMAIL",email)
-                .whereEqualTo("ARKADAS", arkadas).whereLessThanOrEqualTo("ODEMETARIH",longDate)
+                .whereEqualTo("ARKADAS", arkadas).whereGreaterThanOrEqualTo("ODEMETARIH",longDate)
                 .get()
         }else{
             db.collection("arkadasOdeme").whereEqualTo("ODEMETIP", odemeTip).whereEqualTo("EMAIL",email)
-                .whereEqualTo("ARKADAS", arkadas).whereLessThanOrEqualTo("ODEMETARIH",longDate)
+                .whereEqualTo("ARKADAS", arkadas).whereGreaterThanOrEqualTo("ODEMETARIH",longDate)
                 .get()
         }
 
